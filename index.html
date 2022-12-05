@@ -64,6 +64,504 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Kafka" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/12/05/Kafka/" class="article-date">
+  <time datetime="2022-12-05T05:15:52.000Z" itemprop="datePublished">2022-12-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/12/05/Kafka/">Kafka</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>是一个分布式的流处理平台，支持消息的发布和订阅(类似消息队列)，支持数据实时处理，通过多副本分布式的方案保证消息的容错。</p>
+<p>Kafka是一个分布式的流处理平台，支持消息的发布和订阅(类似消息队列)，支持数据实时处理，通过多副本分布式的方案保证消息的容错。</p>
+<h3 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h3><p>Message： Kafka的基本数据单元</p>
+<p>Batch：多个Message会放入同一Batch中再写入(减少网络开销)</p>
+<p>Topics： Kafka的Message通过Topic（主题）进行分类，一个Topic包含多个Partitions</p>
+<p>Partitions： 提交日志，Message以追加的方式写入Partition，一个Topic中的Partitions可以分布在不同服务器上，一个Partition也可以在多个服务器上备份</p>
+<p>Producer：生产者，将消息分布到主题的不同分区上</p>
+<p>Consumer：消费者，是消费群组的一部分，会消费消息。一个Partition只可以被同一个消费群组中的一个消费者读取，但可以被不同消费群组中所组成的多个消费者读取。</p>
+<p>Broker：一个独立的Kafka服务器，接收生产者的消息，提交到磁盘保存，同时为消费者提供读取服务。</p>
+<p>Cluster：由多个Broker组成的Kafka集群，一个Cluster中会选举出一个Broker作为集群控制器。在一个集群中，一个Partition从属于一个Broker，该Broker是该Partition的Leader，同时一个Partition也可以分配给多个Broker(分区复制)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wuminxuan.github.io/2022/12/05/Kafka/" data-id="clbad6zbk0009fstxetsx8pin" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" rel="tag">消息队列</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Flink" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/12/05/Flink/" class="article-date">
+  <time datetime="2022-12-05T05:13:51.000Z" itemprop="datePublished">2022-12-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/12/05/Flink/">Flink</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Flink是一个分布式的流处理框架。能够对有界、无界的数据流进行处理。Flink核心是流处理，但也可以通过给数据流设限，从而支持批处理，这与Spark Streaming的处理思想相反。</p>
+<h3 id="Flink核心概念"><a href="#Flink核心概念" class="headerlink" title="Flink核心概念"></a>Flink核心概念</h3><h4 id="Streams"><a href="#Streams" class="headerlink" title="Streams"></a>Streams</h4><p>流分为有界流和无界流。有界流指的是有固定大小，不随时间增加而增长的数据，比如我们保存在 Hive 中的一个表；而无界流指的是数据随着时间增加而增长，计算状态持续进行，比如我们消费 Kafka 中的消息，消息持续不断，那么计算也会持续进行不会结束。</p>
+<h4 id="State"><a href="#State" class="headerlink" title="State"></a>State</h4><p>状态指的是在进行流式计算过程中的信息。一般用作容错恢复和持久化，流式计算在本质上是<strong>增量计算</strong>，也就是说需要不断地查询过去的状态。</p>
+<h4 id="Time"><a href="#Time" class="headerlink" title="Time"></a>Time</h4><p>Flink 支持了 Event time、Ingestion time、Processing time 等多种时间语义，时间是我们在进行 Flink 程序开发时判断业务状态是否滞后和延迟的重要依据。</p>
+<h4 id="算子链"><a href="#算子链" class="headerlink" title="算子链"></a>算子链</h4><p>在分布式运行环境中，Flink 提出了<strong>算子链</strong>的概念，Flink 将多个算子放在一个任务中，由同一个线程执行，减少线程之间的切换、消息的序列化/反序列化、数据在缓冲区的交换，减少延迟的同时提高整体的吞吐量。</p>
+<h3 id="Flink-集群模型和角色"><a href="#Flink-集群模型和角色" class="headerlink" title="Flink 集群模型和角色"></a>Flink 集群模型和角色</h3><h4 id="JobManager"><a href="#JobManager" class="headerlink" title="JobManager"></a>JobManager</h4><p>集群管理者，负责调度任务、协调 checkpoints、协调故障恢复、收集 Job 的状态信息，并管理 Flink 集群中的从节点 TaskManager。</p>
+<h4 id="TaskManager"><a href="#TaskManager" class="headerlink" title="TaskManager"></a>TaskManager</h4><p>实际负责执行计算的 Worker，在其上执行 Flink Job 的一组 Task。</p>
+<h4 id="Client"><a href="#Client" class="headerlink" title="Client"></a>Client</h4><p>用户在提交编写好的 Flink 工程时，会先创建一个客户端再进行提交，这个客户端就是 Client，Client 会根据用户传入的参数选择使用 yarn per job 模式、stand-alone 模式还是 yarn-session 模式将 Flink 程序提交到集群。</p>
+<h3 id="Flink-资源和资源组"><a href="#Flink-资源和资源组" class="headerlink" title="Flink 资源和资源组"></a>Flink 资源和资源组</h3><p>​    在Flink集群中，一个TaskManger就是一个 JVM 进程，并且会用独立的线程来执行 task，为了控制一个 TaskManger 能接受多少个 task，Flink 提出了 Task Slot 的概念。</p>
+<p>​    假如一个 TaskManager 拥有 5 个 slot，那么该 TaskManager 的计算资源会被平均分为 5 份，不同的 task 在不同的 slot 中执行，避免资源竞争。但是需要注意的是，slot 仅仅用来做内存的隔离，对 CPU 不起作用。那么运行在同一个 JVM 的 task 可以共享 TCP 连接，减少网络传输，在一定程度上提高了程序的运行效率，降低了资源消耗。</p>
+<h3 id="反压-BackPressure"><a href="#反压-BackPressure" class="headerlink" title="反压(BackPressure)"></a>反压(BackPressure)</h3><p>​    反压是分布式处理系统中经常遇到的问题，当消费者速度低于生产者的速度时，则需要消费者将信息反馈给生产者使得生产者的速度能和消费者的速度进行匹配。</p>
+<p>​    Flink没有使用任何复杂的机制来解决反压问题，Flink 在数据传输过程中使用了分布式阻塞队列。在一个阻塞队列中，当队列满了以后发送者会被天然阻塞住，这种阻塞功能相当于给这个阻塞队列提供了反压的能力。</p>
+<h3 id="DataStream"><a href="#DataStream" class="headerlink" title="DataStream"></a>DataStream</h3><p>​    Flink采用了 DataSet 和 DataStream 两套 API 来适配不同的应用场景(批量计算场景和流式计算场景)。对于DataSet而言，Source部分来源于文件、表或者 Java 集合；而 DataStream的Source部分则一般是消息中间件比如Kafka等。</p>
+<p>​    Flink 程序的基础构建模块是<strong>流</strong>（Streams）和<strong>转换</strong>（Transformations），每一个数据流起始于一个或多个 <strong>Source</strong>，并终止于一个或多个 <strong>Sink</strong>。数据流类似于<strong>有向无环图</strong>（DAG）。</p>
+<h3 id="故障恢复和重启策略"><a href="#故障恢复和重启策略" class="headerlink" title="故障恢复和重启策略"></a>故障恢复和重启策略</h3><h4 id="故障恢复"><a href="#故障恢复" class="headerlink" title="故障恢复"></a>故障恢复</h4><p>​    Flink 支持了不同级别的故障恢复策略，jobmanager.execution.failover-strategy 的可配置项有两种：full 和 region。</p>
+<p>​    当我们配置的故障恢复策略为 full 时，集群中的 Task 发生故障，那么该任务的所有 Task 都会发生重启。而在实际生产环境中，我们的大作业可能有几百个 Task，出现一次异常如果进行整个任务重启，那么经常会导致长时间任务不能正常工作，导致数据延迟。</p>
+<p>​    但是事实上，我们可能只是集群中某一个或几个 Task 发生了故障，只需要重启有问题的一部分即可，这就是 Flink <strong>基于 Region 的局部重启策略</strong>。在这个策略下，Flink 会把我们的任务分成不同的 Region，当某一个 Task 发生故障时，Flink 会计算需要故障恢复的最小 Region。</p>
+<ul>
+<li>发生错误的 Task 所在的 Region 需要重启；</li>
+<li>如果当前 Region 的依赖数据出现损坏或者部分丢失，那么生产数据的 Region 也需要重启；</li>
+<li>为了保证数据一致性，当前 Region 的下游 Region 也需要重启</li>
+</ul>
+<h4 id="重启策略"><a href="#重启策略" class="headerlink" title="重启策略"></a>重启策略</h4><p>Flink 提供了多种类型和级别的重启策略，常用的重启策略包括：</p>
+<ul>
+<li>固定延迟重启策略模式</li>
+<li>失败率重启策略模式</li>
+<li>无重启策略模式</li>
+</ul>
+<h3 id="并行度"><a href="#并行度" class="headerlink" title="并行度"></a>并行度</h3><p>​    并行度是 Flink 执行任务的核心概念之一，它被定义为在分布式运行环境中我们的一个算子任务被切分成了多少个子任务并行执行。提高任务的并行度（Parallelism）在很大程度上可以大大提高任务运行速度。</p>
+<p>​    一般情况下，我们可以通过四种级别来设置任务的并行度。</p>
+<ul>
+<li><p>算子级别</p>
+<p>在代码中可以调用 setParallelism 方法来设置每一个算子的并行度。</p>
+</li>
+<li><p>执行环境级别</p>
+<p>在创建 Flink 的上下文时可以显示的调用 env.setParallelism() 方法，来设置当前执行环境的并行度，这个配置会对当前任务的所有算子、Source、Sink 生效。</p>
+</li>
+<li><p>提交任务级别</p>
+<p>用户在提交任务时，可以显示的指定 -p 参数来设置任务的并行度。</p>
+<p>eg:   ./bin/flink run -p 10 WordCount.jar</p>
+</li>
+<li><p>系统配置级别</p>
+<p>flink-conf.yaml 中的：parallelism.default</p>
+</li>
+</ul>
+<p>整体上讲，这四种级别的配置生效优先级如下：<strong>算子级别 &gt; 执行环境级别 &gt; 提交任务级别 &gt; 系统配置级别</strong>。</p>
+<h3 id="窗口和时间"><a href="#窗口和时间" class="headerlink" title="窗口和时间"></a>窗口和时间</h3><p>三种窗口</p>
+<ul>
+<li><p><strong>滚动窗口</strong>，窗口数据有固定的大小，窗口中的数据不会叠加；    </p>
+<p>eg:   .window(TumblingEventTimeWindows.of(Time.seconds(5)))        //tumbling event-time windows</p>
+<p>​        .window(TumblingProcessingTimeWindows.of(Time.seconds(5)))     //tumbling processing-time windows</p>
+<p>​        .window(TumblingEventTimeWindows.of(Time.hours(1), Time.minutes(15)))    //1 hour tumbling event-time windows offset by 15 minutes.</p>
+</li>
+<li><p><strong>滑动窗口</strong>，窗口数据有固定的大小，并且有生成间隔；    </p>
+<p>eg:     .window(SlidingEventTimeWindows.of(Time.seconds(10), Time.seconds(5)))        //sliding event-time windows</p>
+<p>​         .window(SlidingProcessingTimeWindows.of(Time.seconds(10), Time.seconds(5)))    //sliding processing-time windows</p>
+<p>​        .window(SlidingProcessingTimeWindows.of(Time.hours(12), Time.hours(1), Time.hours(-8)))    </p>
+<p>​                                                                                                                //sliding processing-time windows offset by -8 hours</p>
+<p>​        </p>
+</li>
+<li><p><strong>会话窗口</strong>，窗口数据没有固定的大小，根据用户传入的参数进行划分，窗口数据无叠加。</p>
+<p>eg:    </p>
+<p>​    .window(EventTimeSessionWindows.withGap(Time.minutes(10)))          //event-time session windows with static gap</p>
+<p>​    </p>
+</li>
+</ul>
+<p>三种时间</p>
+<ul>
+<li><strong>事件时间</strong>（Event Time），即事件实际发生的时间；</li>
+<li><strong>摄入时间</strong>（Ingestion Time），事件进入流处理框架的时间；</li>
+<li><strong>处理时间</strong>（Processing Time），事件被处理的时间。</li>
+</ul>
+<h3 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h3><h4 id="DataSet-WordCount"><a href="#DataSet-WordCount" class="headerlink" title="DataSet WordCount"></a>DataSet WordCount</h4><p><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221112204051668.png" alt="image-20221112204051668"></p>
+<p>基于给定的DataSet计算</p>
+<h4 id="DataStream-WordCount"><a href="#DataStream-WordCount" class="headerlink" title="DataStream WordCount"></a>DataStream WordCount</h4><p><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221112204621342.png" alt="image-20221112204621342"></p>
+<p><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221112204632804.png" alt="image-20221112204632804"></p>
+<p>DataStream部分踩了一些小坑</p>
+<p>1、不管是在单机运行（在Ide里的Remote Development窗口中run是单机运行，不会提交任务到集群，只是用了本机的Flink Lib）还是在集群上运行，监听端口要在任务提交前让各个Task Worker都可见。</p>
+<p>​    因此在运行任务前，应该运行nc -lk 9527 先打开socket端口</p>
+<p>​    另外，在本机运行时，hostname使用”localhost”,”0.0.0.0”都可以；但是在集群上运行时，hostname要是一个所有worker都能监听到的地址，所以应该写成运行nc -lk命令的那台主机的地址(“172.19.240.113”)</p>
+<p>2、Flink在1.12.2版本中deprecate了一些方法，如keyBy()方法不支持fieldname了，需要使用选择器(wordWithCount-&gt; wordWithCount.word)。还有timeWindow()方法也被废弃了，Flink的窗口的用法明天再具体看，今天光踩坑了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wuminxuan.github.io/2022/12/05/Flink/" data-id="clbad6zbg0004fstx0nuhbkgb" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%81%E8%AE%A1%E7%AE%97/" rel="tag">流计算</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Storm" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/12/05/Storm/" class="article-date">
+  <time datetime="2022-12-05T05:13:02.000Z" itemprop="datePublished">2022-12-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/12/05/Storm/">Storm</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Storm是真正意义上的流处理框架。可以抽象成5个概念名词来理解，Topologies(拓扑)、Streams(流)、Spouts、Bolts、Stream groupings(分组策略)。</p>
+<h3 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h3><h4 id="Topologies"><a href="#Topologies" class="headerlink" title="Topologies"></a>Topologies</h4><p>一个完整的Storm流处理程序，由Spout、Bolts通过Streams连接起来的有向无环图。</p>
+<h4 id="Streams"><a href="#Streams" class="headerlink" title="Streams"></a>Streams</h4><p>一个Streams是一个无界的、以分布式方式并行创建和处理的Tuple序列(Tuple可以包含大多数基本类型以及自定义数据类型，是流数据的载体)，Stream就是一系列的Tuple。</p>
+<h4 id="Spouts"><a href="#Spouts" class="headerlink" title="Spouts"></a>Spouts</h4><p>流数据的源头。</p>
+<h4 id="Bolts"><a href="#Bolts" class="headerlink" title="Bolts"></a>Bolts</h4><p>流数据的处理单元</p>
+<h4 id="Stream-groupings"><a href="#Stream-groupings" class="headerlink" title="Stream groupings"></a>Stream groupings</h4><p>决定Tuple发送到Bolts中哪一个Task的策略</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wuminxuan.github.io/2022/12/05/Storm/" data-id="clbad6zbp000mfstx4i4rfff0" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%81%E8%AE%A1%E7%AE%97/" rel="tag">流计算</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Spark Streaming" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/12/05/Spark%20Streaming/" class="article-date">
+  <time datetime="2022-12-05T05:11:31.000Z" itemprop="datePublished">2022-12-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/12/05/Spark%20Streaming/">Spark Streaming</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​    Spark Streaming是Spark的一个子模块，可以从 HDFS，Flume，Kafka，Twitter 和 ZeroMQ 读取数据，也支持自定义数据源。</p>
+<p>​    Spark Streaming提供离散流(DStream)的高级抽象，将数据流拆分成极小粒度的RDD，使其能得到接近于流处理的效果，但其本质上还是批处理(或者说是微批处理)。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wuminxuan.github.io/2022/12/05/Spark%20Streaming/" data-id="clbad6zbo000jfstx79dy4zi6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spark/" rel="tag">Spark</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%81%E8%AE%A1%E7%AE%97/" rel="tag">流计算</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-HTAP" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/12/05/HTAP/" class="article-date">
+  <time datetime="2022-12-05T05:07:25.000Z" itemprop="datePublished">2022-12-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%AE%BA%E6%96%87%E7%A0%94%E8%AF%BB/">技术论文研读</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/12/05/HTAP/">HTAP</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​    <strong>原文</strong>：《HTAP Databases: What is New and What is Next》    </p>
+<p>​    HTAP(Hybrid Transactional/Analystical Processing)是通过内存计算技术，在同一份内存数据上同时支持OLTP和OLAP的技术。传统的面向OLTP的数据库，在需要进行OLAP分析时，需要通过ETL技术将数据导过去，复杂、延迟性高、运维难度大。</p>
+<p>​    HTAP适合在实时性要求更高的商业数据分析场景中使用。eg:购物节这种实时高并发场景下，实时提供分析业务给卖家，及时调整销售策略。</p>
+<h3 id="Trade-off-for-HTAP"><a href="#Trade-off-for-HTAP" class="headerlink" title="Trade-off for HTAP"></a>Trade-off for HTAP</h3><p>HTAP数据库领域主要讨论工作负载隔离(Workload Isolation)和数据新鲜度(Data Freshness)两个特性的权衡。</p>
+<h3 id="HTAP-数据库的主要架构"><a href="#HTAP-数据库的主要架构" class="headerlink" title="HTAP 数据库的主要架构"></a>HTAP 数据库的主要架构</h3><ul>
+<li>主行存储+内存中列存储（Primary Row Store + InMemory Column Store）</li>
+<li>分布式行存储+列存储副本（Distributed Row Store + Column Store Replica）</li>
+<li>磁盘行存储+分布式列存储（Disk Row Store + Distributed Column Store）</li>
+<li>主列存储+增量行存储（Primary Column Store + Delta Row Store）</li>
+</ul>
+<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>​    HTAP系统可以消除ETL过程从而使得在事务数据上进行实时分析成为可能，然而HTAP系统必须要在Workload Isolation(工作负载隔离)和Data Freshness(数据新鲜度)上进行平衡，因为其需要同时支持OLTP和OLAP操作。</p>
+<p>​    作者以存储策略和架构对当前先进的HTAP系统进行分类，深挖了这些系统的事务处理过程、分析过程、数据同步、查询优化、资源分配。</p>
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><h4 id="BackGround"><a href="#BackGround" class="headerlink" title="BackGround"></a>BackGround</h4><p>​    当前各个组织处理的数据越来越多，且数据呈现出3V的特征(Velocity快速，Volume大量，Variety种类丰富)。对他们来说，使用一个单一的HTAP系统从而能有效地处理OLTP、OLAP操作是很必要的。例如对于电商来说，可以迅速及时地调整广告策略以推广更有希望畅销地商品；对于银行来说，可以及时根据用户的操作来调整风控等级。</p>
+<h4 id="HTAP-Defination"><a href="#HTAP-Defination" class="headerlink" title="HTAP Defination"></a>HTAP Defination</h4><p>​    Hybrid Transactional/Analytical Processing(HTAP)是由Gartner在2014年提出的一种应用架构，其使用了内存计算的技术使得事务处理和数据分析任务可以在同一个内存数据块上并行。在2018年，Gartner扩展了HTAP的定义，将其定义为一个可以支持分析和事务处理并行的应用技术架构(不在局限于使用in-memory computing技术实现的HTAP)</p>
+<h3 id="HTAP-DataBases"><a href="#HTAP-DataBases" class="headerlink" title="HTAP DataBases"></a>HTAP DataBases</h3><p>主要介绍了HTAP的四种架构</p>
+<p>1）Primary Row Store+ In-Memory Column Store（主行存储+内存中列存储）</p>
+<p>2）Distributed Row Store + Column Store Replica（分布式行存储+列存储副本）</p>
+<p>3）Disk Row Store + Distributed Column Store（磁盘行存储+分布式列存储）</p>
+<p>4）Primary Column Store + Delta Row Store（主列存储+增量行存储）</p>
+<h4 id="Primary-Row-Store-In-Memory-Column-Store"><a href="#Primary-Row-Store-In-Memory-Column-Store" class="headerlink" title="Primary Row Store+ In-Memory Column Store"></a>Primary Row Store+ In-Memory Column Store</h4><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221018171745584.png" alt="image-20221018171745584" style="zoom:50%;" />
+
+<p>在传统的行存的单机数据库的基础上，将所有的数据都存储到了主行存储中，同时在内存中增加了列存来加速AP查询，在行存部分也可以使用内存来进行优化。更新的数据会append到增量存储(Delta Store)中，增量存储会被merge到列存储中。这样既使用内存对AP来进行了加速，同时定期的增量存储与列存的合并也保证了数据的新鲜度。</p>
+<p>Pros:</p>
+<p>高AP吞吐量</p>
+<p>高TP吞吐量</p>
+<p>高数据新鲜度</p>
+<p>Cons:</p>
+<p>低AP扩展性</p>
+<p>低工作负载隔离</p>
+<p>Egs：</p>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20221018172638031.png" alt="image-20221018172638031"></p>
+<h4 id="Distributed-Row-Store-Column-Store-Replica"><a href="#Distributed-Row-Store-Column-Store-Replica" class="headerlink" title="Distributed Row Store + Column Store Replica"></a>Distributed Row Store + Column Store Replica</h4><p>面对大规模的负载处理。Master节点会在处理事务请求时将操作log异步发送到Slave节点上，一些Slave节点会被选取作为列存储服务器来加速查询。</p>
+<p>Pros:</p>
+<p>高工作负载隔离</p>
+<p>高可扩展性</p>
+<p>Cons：</p>
+<p>低数据新鲜度</p>
+<p>Egs:</p>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20221018183839375.png" alt="image-20221018183839375"></p>
+<h4 id="Disk-Row-Store-Distributed-Column-Store"><a href="#Disk-Row-Store-Distributed-Column-Store" class="headerlink" title="Disk Row Store + Distributed Column Store"></a>Disk Row Store + Distributed Column Store</h4><p>行存仍基于单机的行存数据库，列存置放到分布式的in-memory中，OLTP的工作负载和IMCS(in-memory column-store)高度集成。列数据从行数据中提取出来，hot data会被存放到IMCS中，而cold data会被交换到硬盘里。</p>
+<p>Pros:</p>
+<p>高工作负载隔离</p>
+<p>高AP吞吐量和扩展性</p>
+<p>Cons：</p>
+<p>较低的数据新鲜度</p>
+<p>Egs:</p>
+<img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221018190440599.png" alt="image-20221018190440599" style="zoom:50%;" />
+
+
+
+<h4 id="Primary-Column-Store-Delta-Row-Store"><a href="#Primary-Column-Store-Delta-Row-Store" class="headerlink" title="Primary Column Store + Delta Row Store"></a>Primary Column Store + Delta Row Store</h4><p>使用Column作为主存来作为OLAP的基础，而使用增量存储来存储列数据从而支持OLTP。</p>
+<p>Pros:</p>
+<p>高数据新鲜度</p>
+<p>高AP吞吐量</p>
+<p>Cons:</p>
+<p>低TP扩展性</p>
+<p>低工作负载隔离</p>
+<p>Egs：</p>
+<p><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221018190839708.png" alt="image-20221018190839708"></p>
+<h4 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h4><p><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221018190925420.png" alt="image-20221018190925420"></p>
+<h3 id="HTAP-Techniques"><a href="#HTAP-Techniques" class="headerlink" title="HTAP Techniques"></a>HTAP Techniques</h3><p>作者总结了五种HTAP Techniques:</p>
+<ol>
+<li>Transaction Processing</li>
+<li>Analytical Processing</li>
+<li>Data Synchronization</li>
+<li>Query Optimization</li>
+<li>Resource Scheduling</li>
+</ol>
+<p><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221018191242172.png" alt="image-20221018191242172"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wuminxuan.github.io/2022/12/05/HTAP/" data-id="clbad6zbj0008fstx4eod57iv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OLAP/" rel="tag">OLAP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OLTP/" rel="tag">OLTP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%98%E5%82%A8/" rel="tag">存储</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-HBase" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/12/05/HBase/" class="article-date">
+  <time datetime="2022-12-05T05:06:03.000Z" itemprop="datePublished">2022-12-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/12/05/HBase/">HBase</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>HBase是一个构建在Hadoop上的面向列的数据库管理系统。Hadoop可以通过HDFS存储结构化、半结构化、非结构化的数据，但是它只能执行批处理，也只能以顺序存储的方式访问数据，无法对数据进行随机访问。而HBase基于Google Bigtable实现，将数据存储在HDFS上，客户端通过HBase实现对HDFS上数据的随机访问。</p>
+<h3 id="HBase-Table"><a href="#HBase-Table" class="headerlink" title="HBase Table"></a>HBase Table</h3><p>HBase是面向列的，更准确地说，HBase是面向列族的。表的Schema仅定义列族，表有多个列族，每个列族包含有相关的任意数量的列，列由多个单元格组成，单元格可以存储多个版本的数据，多个版本的数据通过时间戳进行区分。</p>
+<p>所有的列族都需要在创建表时进行定义，列族中的列使用列族名作为前缀，使用列限定符作为后缀。如courses:history是一个列，courses是列族，history则是具体的列限定符(也可以理解为列名)。列限定符不是表Schema的一部分，插入数据时可以动态创建列。</p>
+<h3 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构"></a>存储结构</h3><h4 id="Regions"><a href="#Regions" class="headerlink" title="Regions"></a>Regions</h4><p>HBase Table中的所有行按照Row Key的字典序进行排序，一个表通过Row Keys的范围被水平切分成了多个Region，每个表开始只有一个Region，随着数据增加，Region会增大，当增大到一个阈值时，一个Region会被分为两个Regions。Region是HBase中分布式存储和负载均衡的最小单元，同一个Region不会被拆分存储到多个Region Server上。（Region 对应 Bigtable中的SSTable）</p>
+<h4 id="Region-Server"><a href="#Region-Server" class="headerlink" title="Region Server"></a>Region Server</h4><p>Region Server运行在HDFS的DataNode上，有以下组件：</p>
+<p>WAL(Write Ahead Log，预写日志)：内存数据恢复。</p>
+<p>BlockCache：读缓存</p>
+<p>MemStore：写缓存</p>
+<p>HFile：将行数据按照KV形式存储在HDFS上。</p>
+<h3 id="HBase系统架构"><a href="#HBase系统架构" class="headerlink" title="HBase系统架构"></a>HBase系统架构</h3><p>Master/Slave架构，由三种组件组成：</p>
+<p>Zookeeper：保证集群中只有一个Master，存储Region的寻址入口，监控Region Server状态，存储HBase的Schema</p>
+<p>Master：为Region Server分配Region，Region Server的负载均衡，Region Server的失效检测和恢复，GFS上的垃圾文件回收，处理Schema的更新请求。</p>
+<p>Region Server：维护Region，处理IO请求；切分过大的Region。</p>
+<p>HBase 使用 ZooKeeper 作为分布式协调服务来维护集群中的服务器状态。 Zookeeper 负责维护可用服务列表，并提供服务故障通知等服务</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wuminxuan.github.io/2022/12/05/HBase/" data-id="clbad6zbh0005fstx7mjhgbu8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%98%E5%82%A8/" rel="tag">存储</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-BigTable" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/12/05/BigTable/" class="article-date">
+  <time datetime="2022-12-05T05:03:03.000Z" itemprop="datePublished">2022-12-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%AE%BA%E6%96%87%E7%A0%94%E8%AF%BB/">技术论文研读</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/12/05/BigTable/">BigTable</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​    Bigtable 是一个分布式的结构化数据存储系统，它被设计用来处理海量数据：通常是分布在数千台普通服务器上的PB 级的数据。Google 的很多项目使用Bigtable 存储数据，包括Web 索引、GoogleEarth、Google Finance。<br>     Bigtable 已经实现了下面的几个目标：适用性广泛、可扩展、高性能和高可用性,Bigtable 是一个稀疏的、分布式的、持久化存储的多维度排序Map。</p>
+<h3 id="如何保存一个很大的表？"><a href="#如何保存一个很大的表？" class="headerlink" title="如何保存一个很大的表？"></a>如何保存一个很大的表？</h3><p>将一个大表分成多个小表，每个小表里面是一些排过序的K，V串，用一个MetaData of Table保存每一个小表的存储位置。</p>
+<img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221013113258700.png" alt="image-20221013113258700" style="zoom:50%;" />
+
+
+
+<h3 id="如何保存一个超大的表？"><a href="#如何保存一个超大的表？" class="headerlink" title="如何保存一个超大的表？"></a>如何保存一个超大的表？</h3><p>再递归地拆一层，大表变成Tablet，小表变成SSTable</p>
+<img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221013113523941.png" alt="image-20221013113523941" style="zoom:33%;" />
+
+<p>Metadata of Table=a list of tablets</p>
+<p>Tablet=a list of SSTables</p>
+<p>SSTable=a list of sorted&lt;key,value&gt;</p>
+<h3 id="如何写数据？"><a href="#如何写数据？" class="headerlink" title="如何写数据？"></a>如何写数据？</h3><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221013113809165.png" alt="image-20221013113809165" style="zoom:33%;" />
+
+<p>通过先写入memTable（内存表）来加速，因为内存中是随机存取，更好排序</p>
+<p>Tablet=memTable+a list of SSTables</p>
+<h3 id="如何避免内存数据丢失？"><a href="#如何避免内存数据丢失？" class="headerlink" title="如何避免内存数据丢失？"></a>如何避免内存数据丢失？</h3><p>写入到memTable的同时，在tabletLog上添加一条更改的日志记录，虽然这时候往硬盘上写也会减速，但由于是顺序写入，所以相对较快，而且可能不是在本地写入，而是在远程，所以可能不会影响。</p>
+<img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221013115010963.png" alt="image-20221013115010963" style="zoom:50%;" />
+
+<p>A Tablet=memTable + a list of SSTables + log</p>
+<h3 id="如何加速读数据？"><a href="#如何加速读数据？" class="headerlink" title="如何加速读数据？"></a>如何加速读数据？</h3><p>建立索引，将SSTable拆成多个数据块。</p>
+<img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221013115456847.png" alt="image-20221013115456847" style="zoom:33%;" />
+
+
+
+<h3 id="继续加速？"><a href="#继续加速？" class="headerlink" title="继续加速？"></a>继续加速？</h3><p>使用BloomFilter过滤，判断一个数据在不在一个SSTable中。</p>
+<p>SSTable=a list of 64k blocks + index +bloomfilter</p>
+<p>布隆过滤器可以判断一个数据一定不在一个SSTable中，而不能判断一个数据是否一定在一个SSTable中。</p>
+<h4 id="BloomFilter"><a href="#BloomFilter" class="headerlink" title="BloomFilter"></a>BloomFilter</h4><p>一个01组成的串，对于一个key，采用多种方式Hash，映射到串上的多个位置，映射到的位置变为1。查找时，通过同样的Hash方式映射到位置，如果所有的位置都为1，则说明key可能存在（因为可能别的key映射到的Hash冲突）；如果有一个位置不为1，则说明key肯定不存在。</p>
+<h3 id="BigTable结构"><a href="#BigTable结构" class="headerlink" title="BigTable结构"></a>BigTable结构</h3><p><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221013122012438.png" alt="image-20221013122012438"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wuminxuan.github.io/2022/12/05/BigTable/" data-id="clbad6zbf0003fstx687nexm8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%98%E5%82%A8/" rel="tag">存储</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-GFS" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2022/12/05/GFS/" class="article-date">
@@ -71,7 +569,7 @@
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%AE%BA%E6%96%87%E7%A0%94%E8%AF%BB/">技术论文研读</a>
   </div>
 
   </div>
@@ -119,7 +617,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wuminxuan.github.io/2022/12/05/GFS/" data-id="clbaai0h20001h0tx96551ndw" class="article-share-link">Share</a>
+      <a data-url="http://wuminxuan.github.io/2022/12/05/GFS/" data-id="clbabnkgb0003qwtx12h0fnvb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" rel="tag">文件系统</a></li></ul>
@@ -175,7 +673,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wuminxuan.github.io/2022/12/05/Spark%20SQL/" data-id="clbaai0h50003h0txa9ateaqu" class="article-share-link">Share</a>
+      <a data-url="http://wuminxuan.github.io/2022/12/05/Spark%20SQL/" data-id="clbabnkg80001qwtxcfo3clk7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spark/" rel="tag">Spark</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/" rel="tag">云计算</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li></ul>
@@ -226,7 +724,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wuminxuan.github.io/2022/12/05/ssh/" data-id="clbaai0hh000ih0tx8dfdavx8" class="article-share-link">Share</a>
+      <a data-url="http://wuminxuan.github.io/2022/12/05/ssh/" data-id="clbabnkgo000iqwtxdxrfe2rl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%89%E5%85%A8/" rel="tag">安全</a></li></ul>
@@ -240,6 +738,11 @@
   
 
 
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+  </nav>
+
 </section>
         
           <aside id="sidebar">
@@ -248,7 +751,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80/">技术基础</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80/">技术基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%AE%BA%E6%96%87%E7%A0%94%E8%AF%BB/">技术论文研读</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></li></ul>
     </div>
   </div>
 
@@ -258,7 +761,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spark/" rel="tag">Spark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/" rel="tag">云计算</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%85%A8/" rel="tag">安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" rel="tag">文件系统</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bert/" rel="tag">Bert</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code-Completion/" rel="tag">Code Completion</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KMP/" rel="tag">KMP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/" rel="tag">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OLAP/" rel="tag">OLAP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OLTP/" rel="tag">OLTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RocketMQ/" rel="tag">RocketMQ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spark/" rel="tag">Spark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/" rel="tag">云计算</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%AE%97%E6%B3%95/" rel="tag">字符串算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%98%E5%82%A8/" rel="tag">存储</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%85%A8/" rel="tag">安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" rel="tag">文件系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%81%E8%AE%A1%E7%AE%97/" rel="tag">流计算</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" rel="tag">消息队列</a></li></ul>
     </div>
   </div>
 
@@ -268,7 +771,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Spark/" style="font-size: 10px;">Spark</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/" style="font-size: 10px;">云计算</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 20px;">大数据</a> <a href="/tags/%E5%AE%89%E5%85%A8/" style="font-size: 10px;">安全</a> <a href="/tags/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">文件系统</a>
+      <a href="/tags/Bert/" style="font-size: 10px;">Bert</a> <a href="/tags/Code-Completion/" style="font-size: 10px;">Code Completion</a> <a href="/tags/KMP/" style="font-size: 10px;">KMP</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/OLAP/" style="font-size: 10px;">OLAP</a> <a href="/tags/OLTP/" style="font-size: 10px;">OLTP</a> <a href="/tags/RocketMQ/" style="font-size: 10px;">RocketMQ</a> <a href="/tags/Spark/" style="font-size: 13.33px;">Spark</a> <a href="/tags/SpringBoot/" style="font-size: 10px;">SpringBoot</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/" style="font-size: 10px;">云计算</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 20px;">大数据</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%AE%97%E6%B3%95/" style="font-size: 10px;">字符串算法</a> <a href="/tags/%E5%AD%98%E5%82%A8/" style="font-size: 16.67px;">存储</a> <a href="/tags/%E5%AE%89%E5%85%A8/" style="font-size: 10px;">安全</a> <a href="/tags/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">文件系统</a> <a href="/tags/%E6%B5%81%E8%AE%A1%E7%AE%97/" style="font-size: 16.67px;">流计算</a> <a href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" style="font-size: 13.33px;">消息队列</a>
     </div>
   </div>
 
@@ -277,7 +780,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li></ul>
     </div>
   </div>
 
@@ -290,15 +793,23 @@
       <ul>
         
           <li>
-            <a href="/2022/12/05/GFS/">GFS</a>
+            <a href="/2022/12/05/Kafka/">Kafka</a>
           </li>
         
           <li>
-            <a href="/2022/12/05/Spark%20SQL/">Spark SQL</a>
+            <a href="/2022/12/05/Flink/">Flink</a>
           </li>
         
           <li>
-            <a href="/2022/12/05/ssh/">ssh</a>
+            <a href="/2022/12/05/Storm/">Storm</a>
+          </li>
+        
+          <li>
+            <a href="/2022/12/05/Spark%20Streaming/">Spark Streaming</a>
+          </li>
+        
+          <li>
+            <a href="/2022/12/05/HTAP/">HTAP</a>
           </li>
         
       </ul>

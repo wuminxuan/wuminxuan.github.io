@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>HTAP | 吴旻轩的个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="​    原文：《HTAP Databases: What is New and What is Next》     ​    HTAP(Hybrid Transactional&#x2F;Analystical Processing)是通过内存计算技术，在同一份内存数据上同时支持OLTP和OLAP的技术。传统的面向OLTP的数据库，在需要进行OLAP分析时，需要通过ETL技术将数据导过去，复杂、延迟性高、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTAP">
+<meta property="og:url" content="http://wuminxuan.github.io/2022/12/05/HTAP/index.html">
+<meta property="og:site_name" content="吴旻轩的个人博客">
+<meta property="og:description" content="​    原文：《HTAP Databases: What is New and What is Next》     ​    HTAP(Hybrid Transactional&#x2F;Analystical Processing)是通过内存计算技术，在同一份内存数据上同时支持OLTP和OLAP的技术。传统的面向OLTP的数据库，在需要进行OLAP分析时，需要通过ETL技术将数据导过去，复杂、延迟性高、">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221018171745584.png">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20221018172638031.png">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20221018183839375.png">
+<meta property="og:image" content="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221018190440599.png">
+<meta property="og:image" content="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221018190839708.png">
+<meta property="og:image" content="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221018190925420.png">
+<meta property="og:image" content="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221018191242172.png">
+<meta property="article:published_time" content="2022-12-05T05:07:25.000Z">
+<meta property="article:modified_time" content="2022-12-05T05:11:01.636Z">
+<meta property="article:author" content="zh-CN">
+<meta property="article:tag" content="大数据">
+<meta property="article:tag" content="存储">
+<meta property="article:tag" content="OLAP">
+<meta property="article:tag" content="OLTP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221018171745584.png">
+  
+    <link rel="alternate" href="/atom.xml" title="吴旻轩的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">吴旻轩的个人博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wuminxuan.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-HTAP" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/12/05/HTAP/" class="article-date">
+  <time datetime="2022-12-05T05:07:25.000Z" itemprop="datePublished">2022-12-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%AE%BA%E6%96%87%E7%A0%94%E8%AF%BB/">技术论文研读</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      HTAP
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​    <strong>原文</strong>：《HTAP Databases: What is New and What is Next》    </p>
+<p>​    HTAP(Hybrid Transactional/Analystical Processing)是通过内存计算技术，在同一份内存数据上同时支持OLTP和OLAP的技术。传统的面向OLTP的数据库，在需要进行OLAP分析时，需要通过ETL技术将数据导过去，复杂、延迟性高、运维难度大。</p>
+<p>​    HTAP适合在实时性要求更高的商业数据分析场景中使用。eg:购物节这种实时高并发场景下，实时提供分析业务给卖家，及时调整销售策略。</p>
+<h3 id="Trade-off-for-HTAP"><a href="#Trade-off-for-HTAP" class="headerlink" title="Trade-off for HTAP"></a>Trade-off for HTAP</h3><p>HTAP数据库领域主要讨论工作负载隔离(Workload Isolation)和数据新鲜度(Data Freshness)两个特性的权衡。</p>
+<h3 id="HTAP-数据库的主要架构"><a href="#HTAP-数据库的主要架构" class="headerlink" title="HTAP 数据库的主要架构"></a>HTAP 数据库的主要架构</h3><ul>
+<li>主行存储+内存中列存储（Primary Row Store + InMemory Column Store）</li>
+<li>分布式行存储+列存储副本（Distributed Row Store + Column Store Replica）</li>
+<li>磁盘行存储+分布式列存储（Disk Row Store + Distributed Column Store）</li>
+<li>主列存储+增量行存储（Primary Column Store + Delta Row Store）</li>
+</ul>
+<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>​    HTAP系统可以消除ETL过程从而使得在事务数据上进行实时分析成为可能，然而HTAP系统必须要在Workload Isolation(工作负载隔离)和Data Freshness(数据新鲜度)上进行平衡，因为其需要同时支持OLTP和OLAP操作。</p>
+<p>​    作者以存储策略和架构对当前先进的HTAP系统进行分类，深挖了这些系统的事务处理过程、分析过程、数据同步、查询优化、资源分配。</p>
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><h4 id="BackGround"><a href="#BackGround" class="headerlink" title="BackGround"></a>BackGround</h4><p>​    当前各个组织处理的数据越来越多，且数据呈现出3V的特征(Velocity快速，Volume大量，Variety种类丰富)。对他们来说，使用一个单一的HTAP系统从而能有效地处理OLTP、OLAP操作是很必要的。例如对于电商来说，可以迅速及时地调整广告策略以推广更有希望畅销地商品；对于银行来说，可以及时根据用户的操作来调整风控等级。</p>
+<h4 id="HTAP-Defination"><a href="#HTAP-Defination" class="headerlink" title="HTAP Defination"></a>HTAP Defination</h4><p>​    Hybrid Transactional/Analytical Processing(HTAP)是由Gartner在2014年提出的一种应用架构，其使用了内存计算的技术使得事务处理和数据分析任务可以在同一个内存数据块上并行。在2018年，Gartner扩展了HTAP的定义，将其定义为一个可以支持分析和事务处理并行的应用技术架构(不在局限于使用in-memory computing技术实现的HTAP)</p>
+<h3 id="HTAP-DataBases"><a href="#HTAP-DataBases" class="headerlink" title="HTAP DataBases"></a>HTAP DataBases</h3><p>主要介绍了HTAP的四种架构</p>
+<p>1）Primary Row Store+ In-Memory Column Store（主行存储+内存中列存储）</p>
+<p>2）Distributed Row Store + Column Store Replica（分布式行存储+列存储副本）</p>
+<p>3）Disk Row Store + Distributed Column Store（磁盘行存储+分布式列存储）</p>
+<p>4）Primary Column Store + Delta Row Store（主列存储+增量行存储）</p>
+<h4 id="Primary-Row-Store-In-Memory-Column-Store"><a href="#Primary-Row-Store-In-Memory-Column-Store" class="headerlink" title="Primary Row Store+ In-Memory Column Store"></a>Primary Row Store+ In-Memory Column Store</h4><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221018171745584.png" alt="image-20221018171745584" style="zoom:50%;" />
+
+<p>在传统的行存的单机数据库的基础上，将所有的数据都存储到了主行存储中，同时在内存中增加了列存来加速AP查询，在行存部分也可以使用内存来进行优化。更新的数据会append到增量存储(Delta Store)中，增量存储会被merge到列存储中。这样既使用内存对AP来进行了加速，同时定期的增量存储与列存的合并也保证了数据的新鲜度。</p>
+<p>Pros:</p>
+<p>高AP吞吐量</p>
+<p>高TP吞吐量</p>
+<p>高数据新鲜度</p>
+<p>Cons:</p>
+<p>低AP扩展性</p>
+<p>低工作负载隔离</p>
+<p>Egs：</p>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20221018172638031.png" alt="image-20221018172638031"></p>
+<h4 id="Distributed-Row-Store-Column-Store-Replica"><a href="#Distributed-Row-Store-Column-Store-Replica" class="headerlink" title="Distributed Row Store + Column Store Replica"></a>Distributed Row Store + Column Store Replica</h4><p>面对大规模的负载处理。Master节点会在处理事务请求时将操作log异步发送到Slave节点上，一些Slave节点会被选取作为列存储服务器来加速查询。</p>
+<p>Pros:</p>
+<p>高工作负载隔离</p>
+<p>高可扩展性</p>
+<p>Cons：</p>
+<p>低数据新鲜度</p>
+<p>Egs:</p>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20221018183839375.png" alt="image-20221018183839375"></p>
+<h4 id="Disk-Row-Store-Distributed-Column-Store"><a href="#Disk-Row-Store-Distributed-Column-Store" class="headerlink" title="Disk Row Store + Distributed Column Store"></a>Disk Row Store + Distributed Column Store</h4><p>行存仍基于单机的行存数据库，列存置放到分布式的in-memory中，OLTP的工作负载和IMCS(in-memory column-store)高度集成。列数据从行数据中提取出来，hot data会被存放到IMCS中，而cold data会被交换到硬盘里。</p>
+<p>Pros:</p>
+<p>高工作负载隔离</p>
+<p>高AP吞吐量和扩展性</p>
+<p>Cons：</p>
+<p>较低的数据新鲜度</p>
+<p>Egs:</p>
+<img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221018190440599.png" alt="image-20221018190440599" style="zoom:50%;" />
+
+
+
+<h4 id="Primary-Column-Store-Delta-Row-Store"><a href="#Primary-Column-Store-Delta-Row-Store" class="headerlink" title="Primary Column Store + Delta Row Store"></a>Primary Column Store + Delta Row Store</h4><p>使用Column作为主存来作为OLAP的基础，而使用增量存储来存储列数据从而支持OLTP。</p>
+<p>Pros:</p>
+<p>高数据新鲜度</p>
+<p>高AP吞吐量</p>
+<p>Cons:</p>
+<p>低TP扩展性</p>
+<p>低工作负载隔离</p>
+<p>Egs：</p>
+<p><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221018190839708.png" alt="image-20221018190839708"></p>
+<h4 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h4><p><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221018190925420.png" alt="image-20221018190925420"></p>
+<h3 id="HTAP-Techniques"><a href="#HTAP-Techniques" class="headerlink" title="HTAP Techniques"></a>HTAP Techniques</h3><p>作者总结了五种HTAP Techniques:</p>
+<ol>
+<li>Transaction Processing</li>
+<li>Analytical Processing</li>
+<li>Data Synchronization</li>
+<li>Query Optimization</li>
+<li>Resource Scheduling</li>
+</ol>
+<p><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221018191242172.png" alt="image-20221018191242172"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wuminxuan.github.io/2022/12/05/HTAP/" data-id="clbad6zbj0008fstx4eod57iv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OLAP/" rel="tag">OLAP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OLTP/" rel="tag">OLTP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%98%E5%82%A8/" rel="tag">存储</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/12/05/Spark%20Streaming/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Spark Streaming
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/12/05/HBase/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">HBase</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80/">技术基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%AE%BA%E6%96%87%E7%A0%94%E8%AF%BB/">技术论文研读</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bert/" rel="tag">Bert</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code-Completion/" rel="tag">Code Completion</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KMP/" rel="tag">KMP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/" rel="tag">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OLAP/" rel="tag">OLAP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OLTP/" rel="tag">OLTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RocketMQ/" rel="tag">RocketMQ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spark/" rel="tag">Spark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/" rel="tag">云计算</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%AE%97%E6%B3%95/" rel="tag">字符串算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%98%E5%82%A8/" rel="tag">存储</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%85%A8/" rel="tag">安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" rel="tag">文件系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%81%E8%AE%A1%E7%AE%97/" rel="tag">流计算</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" rel="tag">消息队列</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Bert/" style="font-size: 10px;">Bert</a> <a href="/tags/Code-Completion/" style="font-size: 10px;">Code Completion</a> <a href="/tags/KMP/" style="font-size: 10px;">KMP</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/OLAP/" style="font-size: 10px;">OLAP</a> <a href="/tags/OLTP/" style="font-size: 10px;">OLTP</a> <a href="/tags/RocketMQ/" style="font-size: 10px;">RocketMQ</a> <a href="/tags/Spark/" style="font-size: 13.33px;">Spark</a> <a href="/tags/SpringBoot/" style="font-size: 10px;">SpringBoot</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/" style="font-size: 10px;">云计算</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 20px;">大数据</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%AE%97%E6%B3%95/" style="font-size: 10px;">字符串算法</a> <a href="/tags/%E5%AD%98%E5%82%A8/" style="font-size: 16.67px;">存储</a> <a href="/tags/%E5%AE%89%E5%85%A8/" style="font-size: 10px;">安全</a> <a href="/tags/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">文件系统</a> <a href="/tags/%E6%B5%81%E8%AE%A1%E7%AE%97/" style="font-size: 16.67px;">流计算</a> <a href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" style="font-size: 13.33px;">消息队列</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/12/05/Kafka/">Kafka</a>
+          </li>
+        
+          <li>
+            <a href="/2022/12/05/Flink/">Flink</a>
+          </li>
+        
+          <li>
+            <a href="/2022/12/05/Storm/">Storm</a>
+          </li>
+        
+          <li>
+            <a href="/2022/12/05/Spark%20Streaming/">Spark Streaming</a>
+          </li>
+        
+          <li>
+            <a href="/2022/12/05/HTAP/">HTAP</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 zh-CN<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

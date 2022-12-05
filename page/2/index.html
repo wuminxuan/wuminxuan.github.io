@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>吴旻轩的个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="吴旻轩的个人博客">
+<meta property="og:url" content="http://wuminxuan.github.io/page/2/index.html">
+<meta property="og:site_name" content="吴旻轩的个人博客">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="zh-CN">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="吴旻轩的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">吴旻轩的个人博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wuminxuan.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-KMP" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/11/24/KMP/" class="article-date">
+  <time datetime="2022-11-24T05:38:52.000Z" itemprop="datePublished">2022-11-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/11/24/KMP/">KMP</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这个算法有点绕，现在搞懂了，以后还要多复习</p>
+<p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html">字符串匹配的KMP算法 - 阮一峰的网络日志 (ruanyifeng.com)</a></p>
+<p>​    使用next数组加速匹配，当模式串中的needle[j]!=haystack[i]时，不动i，而将j回退到next[j-1]上，因为前j-1个已经匹配上了，而next[j-1]对应的是最大相同前缀的下一个，如果此时j又匹配上了，则可以继续匹配；否则继续往前追溯。</p>
+<p>​    next数组：<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20221124114004865.png" alt="image-20221124114004865"></p>
+<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20221124112752986.png" alt="image-20221124112752986" style="zoom:88%;" />
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wuminxuan.github.io/2022/11/24/KMP/" data-id="clbad6zbl000dfstxb48yczew" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/KMP/" rel="tag">KMP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%AE%97%E6%B3%95/" rel="tag">字符串算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-An Empirical Study on the Usage of BERT Models for Code Completion" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/11/16/An%20Empirical%20Study%20on%20the%20Usage%20of%20BERT%20Models%20for%20Code%20Completion/" class="article-date">
+  <time datetime="2022-11-16T05:36:13.000Z" itemprop="datePublished">2022-11-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%AE%BA%E6%96%87%E7%A0%94%E8%AF%BB/">技术论文研读</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/11/16/An%20Empirical%20Study%20on%20the%20Usage%20of%20BERT%20Models%20for%20Code%20Completion/">An Empirical Study on the Usage of BERT Models for Code Completion</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>作者运用 RoBERTa 模型针对Java Code和Android Code分别使用Token masking，Construct Masking，Block masking在Raw数据和抽象处理过的Abstract数据进行了模型训练和测试，得出了2 * 3 * 2=12组结果，结果如下图。</p>
+<p><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221116203429606.png" alt="image-20221116203429606"></p>
+<p>​    Abstract数据组的效果在Token Masking和Construct Masking上都优于Raw数据，这是由于抽象化保证了较小的词汇量并且简化了预测任务。而在Block Masking上由于整体的预测成功率都较低，所以没法体现优越性。    </p>
+<p>​    在大多数情况下，Android数据集上的效果都优于Java，这表明了模型在场景更具体的代码数据上表现更好（因为Android代码中可能有更多固定模式的配置、组件代码）</p>
+<p>​        作者还比较了RoBERTa模型和n-gram模型在相同数据集上的表现，数据显示，RoBERTa的Perfect Predictions的效果在各组数据上都优于n-gram。</p>
+<p><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221116203553596.png" alt="image-20221116203553596"></p>
+<p>​    这篇文章主要的工作是对一些市面上已有的模型、工具的组合，并且使用多种统计手段比较测试效果。和一些NLP领域使用BERT模型不同，这篇文章的作者只Mask掉了一个Token或多个结尾处连续的Token(在Token Masking中)，这种手段更符合代码补全的使用场景（程序员敲出一行程序前面一部分的代码，系统自动补全后面的整句代码），并且对Mask的限制可能使得整个模型的复杂度降低，训练出来的模型更拟合真实场景。</p>
+<p>​    这篇文章中主要用到的技术包括：</p>
+<p>​        <strong>模型</strong>：RoBERTa(Bidirectional Encoder Representations from Transformers)，n-gram </p>
+<p>​        <strong>评价指标</strong>：BLEU score，Levenshtein distance(编辑距离)</p>
+<p>​        <strong>代码数据处理方法</strong>：Abstract(使用了src2abs库，是抽象Java源代码的工具），BPE(byte pair encoder，字节对编码)</p>
+<p>​        <strong>结果统计比较方法</strong>：McNemar’s test ，ORs(Odds Ratios)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wuminxuan.github.io/2022/11/16/An%20Empirical%20Study%20on%20the%20Usage%20of%20BERT%20Models%20for%20Code%20Completion/" data-id="clbad6zaz0000fstx5nijfm53" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bert/" rel="tag">Bert</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Code-Completion/" rel="tag">Code Completion</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NLP/" rel="tag">NLP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-RockerMQ" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/10/27/RockerMQ/" class="article-date">
+  <time datetime="2022-10-27T08:28:31.000Z" itemprop="datePublished">2022-10-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/10/27/RockerMQ/">RockerMQ</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="SpringBoot-RocketMQ整合流程"><a href="#SpringBoot-RocketMQ整合流程" class="headerlink" title="SpringBoot+RocketMQ整合流程"></a>SpringBoot+RocketMQ整合流程</h2><h3 id="安装RocketMQ-Windows下"><a href="#安装RocketMQ-Windows下" class="headerlink" title="安装RocketMQ(Windows下)"></a>安装RocketMQ(Windows下)</h3><h4 id="下载RocketMQ压缩包"><a href="#下载RocketMQ压缩包" class="headerlink" title="下载RocketMQ压缩包"></a>下载RocketMQ压缩包</h4><p><a target="_blank" rel="noopener" href="https://archive.apache.org/dist/rocketmq/4.9.4/rocketmq-all-4.9.4-bin-release.zip">https://archive.apache.org/dist/rocketmq/4.9.4/rocketmq-all-4.9.4-bin-release.zip</a></p>
+<p>下载后解压到一个不包含空格的目录下</p>
+<img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221027204613444.png" alt="image-20221027204613444" style="zoom:67%;" />
+
+
+
+<h4 id="配置环境变量中的系统变量"><a href="#配置环境变量中的系统变量" class="headerlink" title="配置环境变量中的系统变量"></a>配置环境变量中的系统变量</h4><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221027205011948.png" alt="image-20221027205011948" style="zoom:67%;" />
+
+
+
+<h4 id="启动nameserver和broker"><a href="#启动nameserver和broker" class="headerlink" title="启动nameserver和broker"></a>启动nameserver和broker</h4><p>cd到C:\rocketmq\bin目录下</p>
+<p><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221027205051594.png" alt="image-20221027205051594"></p>
+<p>执行 mqnamesrc.cmd，启动nameserver</p>
+<p><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221027205129222.png" alt="image-20221027205129222"></p>
+<p>执行mqbroker.cmd -n localhost:9876，启动broker</p>
+<h3 id="使用Rocket-Dashboard"><a href="#使用Rocket-Dashboard" class="headerlink" title="使用Rocket Dashboard"></a>使用Rocket Dashboard</h3><p>使用Docker运行</p>
+<h4 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull apacherocketmq/rocketmq-dashboard:latest</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name rocketmq-dashboard -e &quot;JAVA_OPTS=-Drocketmq.namesrv.addr=172.19.144.64:9876&quot; -p 8080:8080 -t apacherocketmq/rocketmq-dashboard:latest</span><br></pre></td></tr></table></figure>
+
+<p>JAVA_OPTS=-Drocketmq.namesrv.addr=(无线局域网适配器 WLAN:IPV4地址)</p>
+<img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221027214242077.png" alt="image-20221027214242077" style="zoom:67%;" />
+
+
+
+<h3 id="在SpringBoot中集成"><a href="#在SpringBoot中集成" class="headerlink" title="在SpringBoot中集成"></a>在SpringBoot中集成</h3><h4 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--        rocketMQ依赖--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.rocketmq<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>rocketmq-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="修改配置项-application-yml"><a href="#修改配置项-application-yml" class="headerlink" title="修改配置项(application.yml)"></a>修改配置项(application.yml)</h4><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221027214447789.png" alt="image-20221027214447789" style="zoom:67%;" />
+
+<h4 id="在Rocket-Dashboard中创建Topic"><a href="#在Rocket-Dashboard中创建Topic" class="headerlink" title="在Rocket Dashboard中创建Topic"></a>在Rocket Dashboard中创建Topic</h4><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221027214727826.png" alt="image-20221027214727826" style="zoom:50%;" />
+
+
+
+<h4 id="创建消费者"><a href="#创建消费者" class="headerlink" title="创建消费者"></a>创建消费者</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@RocketMQMessageListener(topic = &quot;operation-topic&quot;,consumerGroup = &quot;consumer-group&quot;,messageModel = MessageModel.CLUSTERING,</span></span><br><span class="line"><span class="meta">consumeMode = ConsumeMode.ORDERLY)</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MqTestListener</span> <span class="keyword">implements</span> <span class="title">RocketMQListener</span>&lt;<span class="title">String</span>&gt; </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onMessage</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        log.info(<span class="string">&quot;接收到消息:&#123;&#125;&quot;</span>,s);</span><br><span class="line">        System.out.println(<span class="string">&quot;消息:&quot;</span>+s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="使用Test方法发送消息"><a href="#使用Test方法发送消息" class="headerlink" title="使用Test方法发送消息"></a>使用Test方法发送消息</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MqTest</span> <span class="keyword">extends</span> <span class="title">SpringBootTicketApplicationTests</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    RocketMQTemplate rocketMQTemplate;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendHello</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        SendResult result=rocketMQTemplate.syncSend(<span class="string">&quot;operation-topic&quot;</span>,<span class="string">&quot;hello,world&quot;</span>);</span><br><span class="line">        log.info(<span class="string">&quot;发送结果:&#123;&#125;&quot;</span>, JSON.toJSONString(result));</span><br><span class="line">        Thread.sleep(<span class="number">60000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>因为发送消息后要等待消费者消费消息再关闭整个Spring进程，所以要sleep一下。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wuminxuan.github.io/2022/10/27/RockerMQ/" data-id="clbad6zbm000ffstxa50v7qly" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RocketMQ/" rel="tag">RocketMQ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" rel="tag">消息队列</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80/">技术基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%AE%BA%E6%96%87%E7%A0%94%E8%AF%BB/">技术论文研读</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bert/" rel="tag">Bert</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code-Completion/" rel="tag">Code Completion</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KMP/" rel="tag">KMP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/" rel="tag">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OLAP/" rel="tag">OLAP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OLTP/" rel="tag">OLTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RocketMQ/" rel="tag">RocketMQ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spark/" rel="tag">Spark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/" rel="tag">云计算</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%AE%97%E6%B3%95/" rel="tag">字符串算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%98%E5%82%A8/" rel="tag">存储</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%85%A8/" rel="tag">安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" rel="tag">文件系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%81%E8%AE%A1%E7%AE%97/" rel="tag">流计算</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" rel="tag">消息队列</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Bert/" style="font-size: 10px;">Bert</a> <a href="/tags/Code-Completion/" style="font-size: 10px;">Code Completion</a> <a href="/tags/KMP/" style="font-size: 10px;">KMP</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/OLAP/" style="font-size: 10px;">OLAP</a> <a href="/tags/OLTP/" style="font-size: 10px;">OLTP</a> <a href="/tags/RocketMQ/" style="font-size: 10px;">RocketMQ</a> <a href="/tags/Spark/" style="font-size: 13.33px;">Spark</a> <a href="/tags/SpringBoot/" style="font-size: 10px;">SpringBoot</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/" style="font-size: 10px;">云计算</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 20px;">大数据</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%AE%97%E6%B3%95/" style="font-size: 10px;">字符串算法</a> <a href="/tags/%E5%AD%98%E5%82%A8/" style="font-size: 16.67px;">存储</a> <a href="/tags/%E5%AE%89%E5%85%A8/" style="font-size: 10px;">安全</a> <a href="/tags/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">文件系统</a> <a href="/tags/%E6%B5%81%E8%AE%A1%E7%AE%97/" style="font-size: 16.67px;">流计算</a> <a href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" style="font-size: 13.33px;">消息队列</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/12/05/Kafka/">Kafka</a>
+          </li>
+        
+          <li>
+            <a href="/2022/12/05/Flink/">Flink</a>
+          </li>
+        
+          <li>
+            <a href="/2022/12/05/Storm/">Storm</a>
+          </li>
+        
+          <li>
+            <a href="/2022/12/05/Spark%20Streaming/">Spark Streaming</a>
+          </li>
+        
+          <li>
+            <a href="/2022/12/05/HTAP/">HTAP</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 zh-CN<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
