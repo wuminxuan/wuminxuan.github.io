@@ -64,16 +64,12 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-KMP" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Storm" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/11/24/KMP/" class="article-date">
-  <time datetime="2022-11-24T05:38:52.000Z" itemprop="datePublished">2022-11-24</time>
+    <a href="/2022/10/15/Storm/" class="article-date">
+  <time datetime="2022-10-15T05:13:02.000Z" itemprop="datePublished">2022-10-15</time>
 </a>
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
-  </div>
-
   </div>
   <div class="article-inner">
     
@@ -82,7 +78,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/11/24/KMP/">KMP</a>
+      <a class="article-title" href="/2022/10/15/Storm/">Storm</a>
     </h1>
   
 
@@ -90,18 +86,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这个算法有点绕，现在搞懂了，以后还要多复习</p>
-<p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html">字符串匹配的KMP算法 - 阮一峰的网络日志 (ruanyifeng.com)</a></p>
-<p>​    使用next数组加速匹配，当模式串中的needle[j]!=haystack[i]时，不动i，而将j回退到next[j-1]上，因为前j-1个已经匹配上了，而next[j-1]对应的是最大相同前缀的下一个，如果此时j又匹配上了，则可以继续匹配；否则继续往前追溯。</p>
-<p>​    next数组：<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20221124114004865.png" alt="image-20221124114004865"></p>
-<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20221124112752986.png" alt="image-20221124112752986" style="zoom:88%;" />
+        <p>Storm是真正意义上的流处理框架。可以抽象成5个概念名词来理解，Topologies(拓扑)、Streams(流)、Spouts、Bolts、Stream groupings(分组策略)。</p>
+<h3 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h3><h4 id="Topologies"><a href="#Topologies" class="headerlink" title="Topologies"></a>Topologies</h4><p>一个完整的Storm流处理程序，由Spout、Bolts通过Streams连接起来的有向无环图。</p>
+<h4 id="Streams"><a href="#Streams" class="headerlink" title="Streams"></a>Streams</h4><p>一个Streams是一个无界的、以分布式方式并行创建和处理的Tuple序列(Tuple可以包含大多数基本类型以及自定义数据类型，是流数据的载体)，Stream就是一系列的Tuple。</p>
+<h4 id="Spouts"><a href="#Spouts" class="headerlink" title="Spouts"></a>Spouts</h4><p>流数据的源头。</p>
+<h4 id="Bolts"><a href="#Bolts" class="headerlink" title="Bolts"></a>Bolts</h4><p>流数据的处理单元</p>
+<h4 id="Stream-groupings"><a href="#Stream-groupings" class="headerlink" title="Stream groupings"></a>Stream groupings</h4><p>决定Tuple发送到Bolts中哪一个Task的策略</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wuminxuan.github.io/2022/11/24/KMP/" data-id="clbadaziy000gggtxays59urr" class="article-share-link">Share</a>
+      <a data-url="http://wuminxuan.github.io/2022/10/15/Storm/" data-id="clbaeg53e000x40txfooc0ye1" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/KMP/" rel="tag">KMP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%AE%97%E6%B3%95/" rel="tag">字符串算法</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%81%E8%AE%A1%E7%AE%97/" rel="tag">流计算</a></li></ul>
 
     </footer>
   </div>
@@ -110,313 +108,10 @@
 
 
   
-    <article id="post-An Empirical Study on the Usage of BERT Models for Code Completion" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Spark" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/11/16/An%20Empirical%20Study%20on%20the%20Usage%20of%20BERT%20Models%20for%20Code%20Completion/" class="article-date">
-  <time datetime="2022-11-16T05:36:13.000Z" itemprop="datePublished">2022-11-16</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%AE%BA%E6%96%87%E7%A0%94%E8%AF%BB/">技术论文研读</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/11/16/An%20Empirical%20Study%20on%20the%20Usage%20of%20BERT%20Models%20for%20Code%20Completion/">An Empirical Study on the Usage of BERT Models for Code Completion</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>作者运用 RoBERTa 模型针对Java Code和Android Code分别使用Token masking，Construct Masking，Block masking在Raw数据和抽象处理过的Abstract数据进行了模型训练和测试，得出了2 * 3 * 2=12组结果，结果如下图。</p>
-<p><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221116203429606.png" alt="image-20221116203429606"></p>
-<p>​    Abstract数据组的效果在Token Masking和Construct Masking上都优于Raw数据，这是由于抽象化保证了较小的词汇量并且简化了预测任务。而在Block Masking上由于整体的预测成功率都较低，所以没法体现优越性。    </p>
-<p>​    在大多数情况下，Android数据集上的效果都优于Java，这表明了模型在场景更具体的代码数据上表现更好（因为Android代码中可能有更多固定模式的配置、组件代码）</p>
-<p>​        作者还比较了RoBERTa模型和n-gram模型在相同数据集上的表现，数据显示，RoBERTa的Perfect Predictions的效果在各组数据上都优于n-gram。</p>
-<p><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221116203553596.png" alt="image-20221116203553596"></p>
-<p>​    这篇文章主要的工作是对一些市面上已有的模型、工具的组合，并且使用多种统计手段比较测试效果。和一些NLP领域使用BERT模型不同，这篇文章的作者只Mask掉了一个Token或多个结尾处连续的Token(在Token Masking中)，这种手段更符合代码补全的使用场景（程序员敲出一行程序前面一部分的代码，系统自动补全后面的整句代码），并且对Mask的限制可能使得整个模型的复杂度降低，训练出来的模型更拟合真实场景。</p>
-<p>​    这篇文章中主要用到的技术包括：</p>
-<p>​        <strong>模型</strong>：RoBERTa(Bidirectional Encoder Representations from Transformers)，n-gram </p>
-<p>​        <strong>评价指标</strong>：BLEU score，Levenshtein distance(编辑距离)</p>
-<p>​        <strong>代码数据处理方法</strong>：Abstract(使用了src2abs库，是抽象Java源代码的工具），BPE(byte pair encoder，字节对编码)</p>
-<p>​        <strong>结果统计比较方法</strong>：McNemar’s test ，ORs(Odds Ratios)</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wuminxuan.github.io/2022/11/16/An%20Empirical%20Study%20on%20the%20Usage%20of%20BERT%20Models%20for%20Code%20Completion/" data-id="clbadazim0001ggtxhlute3qb" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bert/" rel="tag">Bert</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Code-Completion/" rel="tag">Code Completion</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NLP/" rel="tag">NLP</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Redis" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/11/05/Redis/" class="article-date">
-  <time datetime="2022-11-05T05:18:37.000Z" itemprop="datePublished">2022-11-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80/">技术基础</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/11/05/Redis/">Redis</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="redis的数据结构"><a href="#redis的数据结构" class="headerlink" title="redis的数据结构"></a>redis的数据结构</h3><p>5种基本类型：String、Hash、List、Set、SortedSet</p>
-<p>HyperLogLog：用于基数统计，计算一个数据集中不重复元素的个数。</p>
-<p>Geo：用于存放地理位置（经纬度）</p>
-<p>Pub/Sub：消息通信模式，Pub发布消息，Sub接收消息。</p>
-<h3 id="Redis的keys指令"><a href="#Redis的keys指令" class="headerlink" title="Redis的keys指令"></a>Redis的keys指令</h3><p>可以使用keys指令来在大量的kv对中寻找特定模式的key集合。</p>
-<p>但是由于Redis是单线程的，keys指令会阻塞线程，线上服务会停顿，此时应该使用scan指令。</p>
-<h3 id="Redis的数据持久化"><a href="#Redis的数据持久化" class="headerlink" title="Redis的数据持久化"></a>Redis的数据持久化</h3><p>Redis提供了两种持久化方式，RDB(Redis DataBase)和AOF(Append Only File)。</p>
-<p>RDB：在不同的时间点，将Redis存储的数据生成快照并存储到磁盘上。</p>
-<p>AOF：将Redis执行过的所有写指令记录下来，在下次Redis重新启动时，把这些写指令从头执行一次，就可以实现数据恢复了。</p>
-<p>两种方法也可以同时使用，Redis重启时，会先使用RDB持久化文件重新构建内存，再根据AOF来恢复到重启前的状态。</p>
-<h3 id="RDB的原理"><a href="#RDB的原理" class="headerlink" title="RDB的原理"></a>RDB的原理</h3><p>Fork&amp;Copy on write</p>
-<p>Redis会创建(fork)一个子进程来进行RDB操作；子进程创建后，父子进程共享内存数据段，父进程继续提供读写服务，写脏的数据会逐渐和子进程分离开来。</p>
-<h3 id="Redis缓存雪崩、缓存击穿、缓存穿透"><a href="#Redis缓存雪崩、缓存击穿、缓存穿透" class="headerlink" title="Redis缓存雪崩、缓存击穿、缓存穿透"></a>Redis缓存雪崩、缓存击穿、缓存穿透</h3><p><strong>缓存雪崩</strong>：一般发生在将一批Key的过期时间都设置在同一时间节点上。而当它们一起过期的时候，大量的请求在缓存中找不到数据，直接打到了数据库上，数据库没法承载这么大的并发量直接崩掉了。就像雪崩一样，数据库崩掉了，与之相关的所有库的接口都没法使用了。用户此时还会不停地重试请求，即使DBA重启了数据库，这些大量的重试请求一样会再次使得数据库崩溃。</p>
-<p>解决方案：将每个Key的过期时间在原有的基础上增加一个随机的值，使得缓存中的数据不会在同一时刻大量失效。</p>
-<p><strong>缓存击穿</strong>：和缓存雪崩有点像。是缓存中的某个热点数据每时每刻都在接受大量的查询请求，当这个数据失效后，大量的查询请求会绕过缓存直接访问数据库，使得数据库崩溃。</p>
-<p>解决方案：设置热点数据永不过期；或者使用互斥锁(第一个到数据库的查询会持有锁，其他的查询会等待，当第一个查询将数据存到缓存中后，接下来的查询会从缓存中读数据)</p>
-<p><strong>缓存穿透</strong>：数据库和缓存中都没有的数据，而用户不断对这个数据发起请求。例如：一直查询id=-1的用户数据。每次请求都能绕过缓存直接打到数据库上，QPS高了，数据库就会崩溃。</p>
-<p>解决方案：对参数做校验；使用布隆过滤器判断Key是否在数据库中存在</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wuminxuan.github.io/2022/11/05/Redis/" data-id="clbadazix000cggtxaw2kgop3" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%86%85%E5%AD%98%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">内存数据库</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%98%E5%82%A8/" rel="tag">存储</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Raft-Exntended" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/10/31/Raft-Exntended/" class="article-date">
-  <time datetime="2022-10-31T10:30:19.000Z" itemprop="datePublished">2022-10-31</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%AE%BA%E6%96%87%E7%A0%94%E8%AF%BB/">技术论文研读</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/10/31/Raft-Exntended/">Raft-Exntended</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>​    Raft是一个管理日志复制的共识算法。它产生的结果等价于Paxos，并且与Paxos效率相同，但是其结构却和Paxos不同，它的结构比Paxos更易理解从而使得基于Raft构建一个实用系统更容易。</p>
-<p>​    为了加强可理解性，Raft将共识算法的重要元素，例如leader election，log replication，safety，并且加强了一致性从而降低了需要考虑的状态。Raft也采用了一种新的机制来更换集群成员，其采用了overlapping majority来保证安全性。</p>
-<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>​    一致性算法使得一个集群中的机器可以像一个整体一样工作，即使其中的一些机器遭遇了故障也可以正常工作。因此，其在构建可靠的大规模软件系统方面起到了很大的作用。Paxos在过去十年主导着一致性算法的研究。</p>
-<p>​    然而，Paxos是很难理解的，并且为了实际的落地，其结构需要做很多复杂的改变。Raft也就因此而生，Raft产生的初衷就是提高可理解性，其中采用了分割技术（Raft分离了leader election，log replication，safety）和状态空间减少（与Paxos相比，Raft减少了不确定性和server与其他server达成一致的方法）。</p>
-<p>​    Raft与很多共识算法相似，但它有着如下的几个新颖的特性：</p>
-<ul>
-<li>Strong leader：Raft 采用了更强的leadership。例如，日志条目只能从leader流向其他servers。这简化了日志复制的管理并且使得Raft更容易理解。</li>
-<li>Leader election：Raft 采用了随机时钟来选举leader。这使得解决冲突更加简单快捷。</li>
-<li>Membership changes：Raft 通过一种新的joint consensus的方法来实现server集合的改变，其中两个不同配置下的majority在过度阶段会发生重合。这能让集群在配置改变时也能继续正常运行。</li>
-</ul>
-<h3 id="Replicated-state-machines"><a href="#Replicated-state-machines" class="headerlink" title="Replicated state machines"></a>Replicated state machines</h3><p>​    共识算法是在复制状态机的背景下被提出的。在这个方法中，一组服务器上的状态机计算同一个状态产生多个副本，并且当某些服务器挂掉的时候可以继续操作。复制状态机被用来解决一系列分布式系统中容错的问题。例如，只有单一的集群领导者的大规模系统，如GFS、HDFS、RAMCloud，通常使用一个单独的复制状态机用来管理leader election以及存储集群配置信息来应对leader crashes。复制状态机的例子有Chubby和ZooKeeper。</p>
-<img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221028203531730.png" alt="image-20221028203531730" style="zoom:50%;" />
-
-<p>​    复制状态机的功能通常使用日志复制实现，如图1。每一个server都保存有包含一系列命令的log，其内部的状态机按顺序执行这些命令。每一个log都包含有相同顺序的命令，所以每一个状态机都可以计算得到相同的状态、产生相同顺序的输出。</p>
-<p>​    一致性算法的任务就是保证复制日志的一致性。服务器上的一致性模块，接收来自客户端的命令，并追加到日志中。它和其它服务器上的一致性模块进行通信，确保每一个服务器上的日志都包含相同顺序的相同请求。请求命令复制完成后，状态机会按照日志中的命令顺序进行执行。并将结果返回给客户端。由此，这些服务器就构成了统一的，高可靠性的复制状态机。</p>
-<p>​    实际系统中的共识算法通常有以下特性：</p>
-<ul>
-<li>保证非拜占庭条件下的安全，（非拜占庭条件）包括网络延迟、网络分区、丢包、冗余和乱序。</li>
-<li>集群中大多数机器能够运行并且能与其他机器和客户端通信时，保证可用性。（5个server挂2个，集群仍可用）</li>
-<li>不依赖时间保证一致性，时钟错误和极端情况下的消息延迟最多只会导致可用性问题。</li>
-<li>通常情况下，大多数机器完成对一个命令的执行后，就可以认为完成了执行。（少部分慢执行机器不会影响整个系统的性能）</li>
-</ul>
-<h3 id="What’s-wrong-with-Paxos"><a href="#What’s-wrong-with-Paxos" class="headerlink" title="What’s wrong with Paxos?"></a>What’s wrong with Paxos?</h3><p>两个缺点：太难懂&amp;没有为实现提供好的基础</p>
-<h3 id="Design-for-understandability"><a href="#Design-for-understandability" class="headerlink" title="Design for understandability"></a>Design for understandability</h3><p>Raft采用了问题分解（分解了leader election, log replication, safety和membership changes）和减少需要考虑的状态数来使得整个算法更容易理解。</p>
-<h3 id="The-Raft-consensus-algorithm"><a href="#The-Raft-consensus-algorithm" class="headerlink" title="The Raft consensus algorithm"></a>The Raft consensus algorithm</h3><p><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221029113343983.png" alt="image-20221029113343983"></p>
-<p>Figure2简要描述了Raft算法</p>
-<p><u><strong>State</strong></u>：</p>
-<p><strong>Persistent state on all servers</strong>（响应RPC之前更新）：</p>
-<p>currentTerm: server最后看到的term号(服务启动时，初始化为0，单调递增)</p>
-<p>votedFor：当前term内投票给的候选人Id</p>
-<p>log[]：日志条目，每个条目包含状态机要执行的命令和此条目从leader处获得时的term号</p>
-<p><strong>Volatile State on all servers</strong>：</p>
-<p>commitIndex：已知的被提交的最大日志条目的索引值（初始为0，单调递增）</p>
-<p>lastApplied：被状态机执行的最大日志条目的索引值（初始为0，单调递增）</p>
-<p><strong>Volatile State on leaders</strong>（每次选举过后重新初始化）：</p>
-<p>nextIndex[]：要发送给每个服务器的下一个日志条目的索引（初始化为leader的上一条日志的索引值+1）</p>
-<p>matchIndex[]：已经复制到每个服务器的最大索引值(初始化为0，单调递增)</p>
-<p><u><strong>AppendEntries RPC</strong></u>（由leader发起的日志复制，同时也用作心跳检测）</p>
-<p><strong>Arguments</strong>：</p>
-<p>term: leader的term</p>
-<p>leaderId： leader的id，使得其他followers可以重定向客户端到leader</p>
-<p>prevLogIndex：当前日志之前的日志索引</p>
-<p>prevLogTerm：当前日志之前的日志的leader Term</p>
-<p>entries[]：将要存储的日志条目（心跳检测时为空，可能同时发一条或多条来提高效率）</p>
-<p>leaderCommit：leader提交的日志条目索引值</p>
-<p><strong>Results</strong>：</p>
-<p>term：当前的term，leader更新自己的term</p>
-<p>success：如果follower服务器能匹配上prevLogIndex和prevLogTerm时，返回true</p>
-<p><strong>Receiver implementation</strong>：</p>
-<p>1.如果term小于server的currentTerm，则返回false</p>
-<p>2.如果日志中没有一个索引为prevLogIndex的条目的term与prevLogTerm相匹配，则返回false</p>
-<p>3.如果已经存在的日志条目与新的日志条目冲突(index相同但是term不同)，删除此日志条目及此条目之后的条目。</p>
-<p>4.添加当前log不存在的新条目</p>
-<p>5.如果leaderCommit&gt;commitIndex，将commitIndex设置成leaderCommit和最新的日志条目的Index中较小的一个</p>
-<img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221029113524417.png" alt="image-20221029113524417" style="zoom:67%;" />
-
-<p>Figure3描述了Raft算法的一些重要属性</p>
-<p><strong>Election Safety</strong>：一个任期内只能有一个leader当选</p>
-<p><strong>Leader Append-Only</strong>：一个leader不会覆盖或删除自己的日志条目，只会追加新条目</p>
-<p><strong>Log Matching</strong>：如果两个日志包含一个index和term都相同的条目，则两个日志在这个index之前的条目都相同</p>
-<p><strong>Leader Completeness</strong>：如果一个日志条目在一个term中被提交了，则这个条目在以后term的leader中仍被保存</p>
-<p><strong>State Machine Safety</strong>：当一个server在其状态机上执行了一个日志条目，其他机器不会在相同index下执行不同的日志条目。</p>
-<h4 id="Raft-basics"><a href="#Raft-basics" class="headerlink" title="Raft basics"></a>Raft basics</h4><p>​    Raft集群中的server会处于三种状态之一：leader，follower，candidate。正常情况下，集群中有一个leader，其他的都是follower。</p>
-<ul>
-<li>follower是被动的：他们只简单响应来自leader和candidate的请求。</li>
-<li>leader会处理所有来自客户端的请求（如果客户端请求一个follower，follower会将该请求重定向到leader）。</li>
-<li>Candidate状态是选举新leader的。</li>
-</ul>
-<p>三种状态的转换如Figure4</p>
-<img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221029165302536.png" alt="image-20221029165302536" style="zoom:67%;" />
-
-<p>​    Raft将时间划分为长度不同的term。每一个term以leader election开始，竞争成功的candidate转换成leader，负责term内的管理。在一些特殊情况下，选举产生分歧，这一个term就会以没有leader而结束。一个新的term就会马上开始。</p>
-<p>​    Term相当于Raft中的一个逻辑时钟，每一次server间的通信都会交换彼此的term信息，如果一个server的term比其它服务器的小，它就会更新自己的term到较大的term。如果这个过期的server是leader或candidate，则它们会转换自己为follower。如果一个follower接收到一个过期term的请求，它会拒绝掉此请求。</p>
-<p>​    Raft的server间通过RPC通信，基础的共识算法只需要使用到RequestVote RPC（选举时使用）和Append Entries RPCs（日志复制及心跳检测使用）。服务器收不到响应时会重发RPC，并且服务器采用并行机制发送RPC。</p>
-<h4 id="Leader-election"><a href="#Leader-election" class="headerlink" title="Leader election"></a>Leader election</h4><p>​    一个server刚启动时，是follower状态，并且一直保持这种状态只要从leader或candidate接收到合法的RPC请求。Leader会定期发送心跳给所有的followers。如果一个follower在一定时间内没有接收到来自leader的消息，则判定leader下线并开始下一轮选举。</p>
-<p>​    开始选举时，一个follower会增加它的currentTerm并将状态切换为Candidate。然后标识votedFor为自己，并且发送RequestVote RPCs给集群中的其他服务器。Candidate会保持这种状态直到以下三种情况中的一种发生：</p>
-<ul>
-<li>赢得选举，成为leader</li>
-<li>其他的server赢得选举</li>
-<li>选举超时，没有选出leader</li>
-</ul>
-<p>​    当一个candidate在一个term中赢得集群中大多数机器(超过一半，此原则保证了一个term内最多出现一个candidate)的选票时，就赢得了选举。投票采用先到先服务的策略，先请求的candidate会获得该server的投票。candidate赢得选举成为leader后，会立即发送心跳消息到其他server，组织新一轮的leader election。</p>
-<p>​    当candidate在等待投票结果时，可能会收到一个来自新leader的带有更新term号的AppendEntries RPC。如果这个term号大于等于candidate的term，则此candidate认可此结果，并转换为follower。如果RPC中的term小于candidate的term，则candidate拒绝此RPC，并保持candidate状态。</p>
-<p>​    如果同一时间，过多的follower成为candidate，分走了票数，没有一个candidate获得了大多数的投票。则candidate进入超时状态并进入新一轮的选举。Raft采用随机的选举超时时间来确保这种情况很少发生并且能很快解决。Raft将选举超时设定为150~300ms之间的一个随机时间。这样当所有candidate都没法获得大多数投票时，会在不同的超时时间后进入下一轮选举，从而首先进入下一轮（超时时间短）的candidate会很可能赢得下一轮选举，大大减少了下一轮中split votes现象的发生。</p>
-<h4 id="Log-replication"><a href="#Log-replication" class="headerlink" title="Log replication"></a>Log replication</h4><p>​    Leader接收到客户端的请求后，会首先将命令追加到自己的log中作为一个新条目，接着发送AppendEntries RPC给其他server去复制该条目。当该日志条目安全地复制到了其他的server上(过半)时，leader自身的状态机开始执行这一命令，并将结果返回给客户端。如果有followers宕机或者运行缓慢或者丢包，leader会一直重新发送AppendEntries RPC(即使其已经回复了客户端)，直到所有的followers都存储该条目。</p>
-<p>​    <img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221029185522502.png" alt="image-20221029185522502" style="zoom:50%;" /></p>
-<p>​    日志的存储组织方式如Figure6。每一个日志条目都保存着一个状态机命令和一个term，term主要用来发现不一致和保证Figure3中的一些属性。每一个日志条目也有一个index来标识其在log中的位置。</p>
-<p>​    当一个日志条目被大多数server成功复制时，它就会被leader commit，Raft协议保证了所有commited的日志条目都是持久的，并且都会最终被集群中所有的状态机执行。commit一个日志条目时，也会将其前面的所有日志条目一起commit(没有被commit过的)，包括了之前term的leader创建的条目。leader会一直跟踪它最新commit的index，并且在之后的AppendeEntries RPC中都包括此index（包括心跳），以使得其他的follower都可以识别，并将被commit的日志条目应用到自身的状态机中。</p>
-<p>​    Raft确保了以下的两个特性（共同组成了Figure3中的Log Matching property）：</p>
-<ul>
-<li>如果两个日志中的日志条目的term和index都相同，则他们存储的command也相同</li>
-<li>如果两个日志中的日志条目的term和index都相同，则之前的所有条目也都相同</li>
-</ul>
-<p>​    第二个特性，是通过leader在发送AppendEntries RPC中携带其要发送的最新条目之前的preLogIndex和preLogTerm，follower如果没有在它的日志中找到对应的条目具有相同的index和term，那么它就会拒绝这个条目。由每一步条件保证的递推来保证此性质。</p>
-<p>​    正常情况下，leader和follower中的日志能保持一致。但是当leader宕机时，就会引发日志的不一致（旧的leader可能有一部分日志还没有成功复制到follower）。follower可能与新的leader的日志不同（可能含有leader没有的条目，也可能缺少leader已有的条目，或者两者都有）。</p>
-<p>​    Raft协议中，leader通过强制follower复制自己的日志来保证一致性。leader首先找到能和follower中达成一致的最近的一个日志条目index，然后删除follower在这个日志条目之后的所有所有条目，并且将leader中此条目之后的日志都发送给follower存储。这些操作都由AppendEntries的一致性检查实现。Leader给每个follower维护了nextIndex（下一个将要发送给follower的日志条目的索引）。Leader初始化时，会将所有follower的nextIndex都设置为自己的最新的日志条目的下一个index(latest Index+1)。如果follower的日志不一致，下一个AppendEntries RPCs会返回失败，一次失败后，leader会将该follower的nextIndex减一，一直到找到一致的nextIndex值。然后完成日志同步。</p>
-<p>​    如果可以的话，协议还可以减少AppendEntries RPC的次数来优化。比如拒绝RPC时，follower可以将冲突的条目的term和此term内存储的第一个条目返回给leader。这样可以直接将nextIndex跳过那个term中所有的冲突条目。但这样做可能是没有必要的，因为这种不一致性错误并不是经常发生。</p>
-<h3 id="Safety"><a href="#Safety" class="headerlink" title="Safety"></a>Safety</h3><p>​    之前Leader Election和Log Replication两节，描述了Raft算法进行领导选举和日志复制的机制。但这些机制并不能有效地保证每个状态机以相同顺序执行相同地命令。例如，一个follower离线期间，leader commit 了一些日志条目，follower恢复后，被选举为leader，然后它用它的新的日志条目覆盖了之前leader commit了的日志条目。不同的server就执行了不同的命令序列。</p>
-<p>​    这一节对可被选为leader的server加了一些限制，这些限制确保了每一个term内的leader都能包含之前任一term内leader commit了的日志条目。</p>
-<h4 id="Election-restriction"><a href="#Election-restriction" class="headerlink" title="Election restriction"></a>Election restriction</h4><p>​    在所有leader-based的一致性算法中，leader最终都必须保存有所有的已提交的日志条目。Raft使用了一种简单的方法保证了之前所有term中commited的日志条目会在每一个新的leader被选举上时就存在，而不需要传输这些条目给新leader。这意味着，这些日志条目只会从leader流向follower，leader永远不会覆盖已有的日志条目。</p>
-<p>​    Raft通过阻止一个没有包含所有commited的日志条目的candidate赢得选举。选举期间，candidate需要与大多数服务器通信，这意味着每一个已经被commited的日志条目一定会出现在这些服务器中至少一个上。当一个candidate的日志比这大多数服务器中的任意一个服务器都更新或同样新时（up-to-date），这就意味着它包含了所有commited的日志条目。RequestVote RPC实现了这种限制：RPC中包含了candidate的log信息，如果投票服务器的日志条目比这个candidate的更新，则其会拒绝这个投票。</p>
-<p>​    Raft通过比较两个服务器上最后一个日志条目的term和index来决定谁更up-to-date。如果term不同，则term大的日志新。如果term相同，则index大的日志新。</p>
-<h4 id="Committing-entries-from-previous-terms"><a href="#Committing-entries-from-previous-terms" class="headerlink" title="Committing entries from previous terms"></a>Committing entries from previous terms</h4><p>leader知道term内的日志条目一旦被大多数server存储了，就commit了。如果一个leader在commit一个条目前就宕机了，未来的leader会继续尝试完成这个条目的复制。然而一个新的leader不能马上识别出一个在大多数server上都存储了的日志条目。Figure8表现了一种场景，存在大多数server上的日志条目被新的leader覆盖了。</p>
-<img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221031151011593.png" alt="image-20221031151011593" style="zoom:67%;" />
-
-<p>​    为了消除Figure8中的问题，Raft从不通过计算日志条目拷贝到的server数来决定之前的term中的某一个条目是否应该被提交。只有当前term中的日志条目通过这种计数的方式来决定提交；一旦当前term中的一个日志条目通过这种方式被提交了，根据Log Matching原则，它所有之前的日志条目也间接地提交了。也存在有一些情形，leader可以安全地识别一个旧的日志条目被提交了（例如，如果这个条目存储在了所有的server上），但是Raft为了简单使用了更保守的方案。</p>
-<p>​    </p>
-<h4 id="Follower-and-candidate-crashes"><a href="#Follower-and-candidate-crashes" class="headerlink" title="Follower and candidate crashes"></a>Follower and candidate crashes</h4><p>​    到目前为止，我们都在关注leader的失败。follower和candidate的失败更容易处理，都以相同的方式处理。如果follower或candidate挂掉，则接下来发送给它的RequestVote和AppendEntries RPC都会失败。Raft通过无限次的重试来处理这种状况；当挂掉的服务器重新有效时，RPC请求会完成。如果一个server在完成RPC请求之后回复RPC请求之前挂掉，那么当它恢复时，会再次收到相同的RPC请求。Raft的RPC是幂等的，所以这样不会造成危害。例如，当一个follower接收到AppendEntries请求包含自己已经存在的日志条目时，它会忽视此请求。</p>
-<h4 id="Timing-and-availability"><a href="#Timing-and-availability" class="headerlink" title="Timing and availability"></a>Timing and availability</h4><p>​    Raft的需求之一就是安全性不依赖于时间因素：系统不会因为一些事情发生的比预期快或者慢而产生错误的结果。然而，系统的可用性不可避免地受到时间因素的影响。例如，因为server崩溃而造成信息交换时间太长，使得candidate不能在选举超时时间内赢得选举；如果没有一个稳定的leader，Raft不能正常工作。</p>
-<p>​    leader选举受时间因素影响较大，当系统满足broadcastTime&lt;&lt;electionTimeout&lt;&lt;MTBF时，Raft才能维持一个稳定的leader。MTBF代表单个服务器的故障发生间隔。</p>
-<h3 id="Cluster-membership-changes-此部分lab中不涉及，仅了解"><a href="#Cluster-membership-changes-此部分lab中不涉及，仅了解" class="headerlink" title="Cluster membership changes(此部分lab中不涉及，仅了解)"></a>Cluster membership changes(此部分lab中不涉及，仅了解)</h3><p>​    到目前为止，我们都假定集群配置是固定的。但是在现实中，需要做一些相应的变动。为了避免服务下线，Raft实现了配置变更的自动化，并将其融合进一致性算法中。</p>
-<p>​    为了保障配置变更机制的安全，在配置转换期间，不能存在同一任期内选举出现两个leader的现象。不幸的是，没有任何方法能够使得集群能够安全的实现配置转换。自动地转换全部的服务器是不可能的，所有集群在转换期间极有可能出现脑裂现象。</p>
-<p>​    <img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221031202022716.png" alt="image-20221031202022716" style="zoom:66%;" /></p>
-<p>​    为了确保安全，配置变更必须采用两阶段法。Raft中，集群首先切换到过渡配置状态，我们称之为 joint consensus ，一旦 joint consensus 被提交，系统切换到新的配置状态。joint consensus既包括旧的配置，也包括新的配置：</p>
-<ul>
-<li>日志条目在集群中被复制到两种配置下所有的服务器。</li>
-<li>新旧配置中的服务器都有可能选举成为leader</li>
-<li>关于选举和日志条目的提交的协定同时需要新旧配置中的大多数服务器的同意。</li>
-</ul>
-<p>​    joint consensus允许单个服务器在不影响安全性的基础上，在不同的特定时刻进行不同配置的转换。此外， joint consensus允许集群在配置转换期间继续处理客户端的请求。</p>
-<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20221031202731591.png" alt="image-20221031202731591" style="zoom:50%;" />
-
-<p>​    集群配置是通过特殊的日志条目通过日志复制进行存储和传输通讯的，Figure11展示了配置的转换过程。当leader收到配置从 Cold 到 Cnew变更的的请求时，它首先将配置作为日志条目存储为 Cold,new 并复制到其它服务器，一旦某个服务器将收到的 Cold,new 配置日志条目添加到自身的日志，那么之后其所有的决策都将以此配置 Cold,new 为依据（服务器总是以日志中最新的配置为依据进行决策，无论配置条目是否已提交）。这就意味着，leader将使用 Cold,new 配置，来决定配置条目 Cold,new 什么时候提交。当leader宕机时，新的leader将在旧配置 Cold或者联合配置 Cold,new 的机器中选举出来。这取决于获得选举的candidate是否已经收到联合配置 Cold,new 。任何情况下，具有新配置 Cnew 的服务器在这段时间内都不能做出单方面的决定。</p>
-<p>​    一旦 Cold,new被提交后，具有Cold或者Cnew的服务器将不能在没有其它服务器允许的情况下做出任何决策， Leader Completeness Property确保了只有具有Cold,new的服务器才能当选为leader。此时，leader将能够安全的创建Cnew的配置条目并将其复制到集群其它服务器。同样，当复制的服务器收到配置条目后就开始使用它。当新的配置被提交后，拥有旧配置的服务器将可以被关闭。</p>
-<p>​    在配置转换期间存在着三方面的问题，第一个就是新的服务器初始化启动的时候不包含任何日志条目，当他们加入集群中时，需要花费相当的时间同步到最新的状态，在此期间，它将不能提交任何日志条目。为了避免可用性断层，Raft设定新加入进群的服务器状态为none-voting（leader向他们复制日志，但是不将他们纳入大多数范围）。当新的服务器同步到最新的状态后，就可以执行正常的配置转换过程了。</p>
-<p>​    第二个问题是集群leader处在旧的配置中，这种情况下，leader在将Cnew类目提交后就降级转换为follower状态。这就意味着在leader提交配置类目的这段时间了，它在管理着一个不包括自己的集群。它复制日志条目，但是却将自身排除在被集群外。leader的身份状态转换发生在Cnew条目提交的时候，这也是新的配置第一次能够独立决策执行的时刻。在此之前，只有处于Cold的服务器才可以被选举为leader。</p>
-<p>​    第三个问题是，无关的服务器（处在Cold的服务器）会扰乱集群运行。因为这些服务器不会收到心跳请求，所以他们就会产生超时并启动新一轮的选举。他们发送的Request Vote RPCs包含了新的任期号，这就会导致当前的leader接收到请求后转换为follower状态，并最终在Cold下的某个服务器当选为新的leader。但是那些无关的的服务器会无限次的不断产生超时，启动选举，最终到会系统可用性的大大降低。</p>
-<p>​    为了避免这样的问题，服务器设定当明确认定当前leader存在的情况下，会选择忽略此类的RequestVote RPCs。特别的，当服务器在当前最小选举超时时间内收到一个 RequestVote RPC，它不会更新当前的任期号或者投出选票。这不会影响正常的选举，每个服务器在开始一次选举之前，至少等待一个最小选举超时时间。然而，这有利于避免无关服务器的扰乱：如果leader能够发送心跳给集群，那么它就不会被更大的任期号废除。</p>
-<h3 id="Log-Compaction"><a href="#Log-Compaction" class="headerlink" title="Log Compaction"></a>Log Compaction</h3><p>​    Raft日志会伴随着系统的日常运行持续增长。实际应用中，我们不能让它无限制的增长下去。日志越长，占用的存储空间越多，也将耗费状态机更多时间去重新应用日志条目。我们需要适当的机制来处理掉日志中的过期的信息，避免其影响系统的可用性。</p>
-<p>​    快照是压缩的最简单的方式，通过快照将某一时刻系统的当前状态写入快照文件，保存到磁盘，然后将这一时刻之前的所有日志丢弃。例如chubby，zookeeper的快照机制。</p>
-<img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221031205002237.png" alt="image-20221031205002237" style="zoom:50%;" />
-
-
-
-<p>​    Figure12展示了快照的基本思想。各个服务器独立的对已提交的日志条目进行日志快照。主要的工作是由状态机将它当前的状态写入快照文件。Raft也保留了一些元数据在快照中，例如，last included index：状态机最后应用的日志条目索引，last included term：这一条目的任期。为了支持集群配置变更，快照文件也在last included index之前包含了最新的配置条目。一旦某个服务器完成快照写入，他就会将last include index之前的所有日志条目都删除掉。</p>
-<p>​    虽然，正常情况下，各个服务器各自完成各自的快照。但是，偶尔也需要leader向落后的follower发送自身的快照。这一情况通常发生在leader丢弃掉了需要发送到follower的日志条目的时候。当然，这种情况很少发生。和leader保持同步的follower拥有leader的所有日志，但是，落后比较大的follower或者刚加入集群的服务器却并非如此。处理此类follower的机制就是leader发送日志快照来进行同步。</p>
-<p>​    <img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221031210055311.png" alt="image-20221031210055311" style="zoom:67%;" /></p>
-<p>​    leader使用一种新的RPC请求：InstallSnapshot来向落后的follower发送快照。(Figure13)。当follower接收到此类请求时，需要判断怎么对其进行处理。通常来说，快照包含最新的日志条目（包含接收者不存在的日志条目），这样接收服务器就可以丢弃自身所有的日志条目（可能包含未提交的和与快照中有冲突的条目），然后替换为快照中的日志条目。相反，如果接收者收到的快照包含的日志条目是其自身日志之前部分的条目（因为重传或者其它错误），那么就会将快照覆盖的自身日志条目删除掉，但是这之后的日志条目仍然有效，需要保留下来。</p>
-<p>​    follower自行处理快照，违背了Raft的强领导准则。然而，这是事出有因的，leader是为了处理达到一致性状态过程中的冲突的，但是，在进行快照的时候，就已经达成一致性的目的了。数据仍然是从leader流向follower，只是follower可以重新整理他们自己的数据。</p>
-<p>​    让我们来思考另外一种leader-based的一致性算法。只有leader可以创建快照，然后发送到follower。这种方式有两个缺点，首先是发送快照造成的带宽浪费，及整个快照进程的拖慢。每个服务器都已经包含了创建快照的数据，因此本地化的快照创建成本更低。其次是，leader的实现会变得更加复杂，例如，leader发送快照的时候，同时需要并行发送新的日志条目，并且不能阻塞客户端请求。</p>
-<p>​    另外有两个影响快照性能的论题。</p>
-<p>​    第一个，server必须确定什么时候进行快照。如果一个server频繁进行快照，会浪费磁盘带宽和能量；如果太久才快照，这会导致存储空间浪费，并且会增大重启时用来重执行日志的时间。一个简单的实现是在log到达一个固定的大小时进行快照。</p>
-<p>​    第二个，创建快照会耗费一定的时间，为了避免影响正常的系统运行，我们可以采用copy-on-write机制，这样新的请求，日志条目的更新不会影响快照的创建。例如，基于功能性结构数据的状态机就天然的支持这种特性。或者我们可以使用操作系统的copy-on-write机制来创建状态机的in-memory快照(Raft的实现采用了这种方法)。</p>
-<h3 id="Client-Interaction-与lab实现无关，仅了解"><a href="#Client-Interaction-与lab实现无关，仅了解" class="headerlink" title="Client Interaction(与lab实现无关，仅了解)"></a>Client Interaction(与lab实现无关，仅了解)</h3><p>​    这一章介绍了客户端和Raft的交互，包括客户端如何识别集群leader，以及Raft是如何支持线性化。这些问题是所有一致性算法的共性问题，Raft的实现也大体相同。</p>
-<p>​    集群leader负责处理客户端所有的请求。客户端启动时，它随机的连接集群中的一台服务器。如果连接的服务器不是leader，服务器会拒绝客户端的连接，并提供集群最新leader的信息（AppendEntries请求包含leader的网络地址信息）。如果leader宕机，客户端的请求就会超时，需要重新向集群尝试连接。</p>
-<p>​    Raft的目标是实现线性化（每一次操作都是即刻执行的，并且只执行一次），然而，就像前面描述的，Raft也存在可能会多次执行同一个命令的情景：例如，leader 在提交完日志条目后及回复客户端之前宕机，客户端就会重新向新的leader发起同样的命令请求。这将会导致同一命令被再次执行。解决方案是，客户端给每一次的请求命令添加一个唯一的序列码，这样服务器状态机就可以根据请求的序列码追踪相应的回复。当服务器收到一个和之前序列码相同的命令请求时，服务器就可以不必重新执行命令，而获取响应返回给客户端。</p>
-<p>​    只读操作可以直接处理而不需要写入日志，但是可能会返回过期数据，因为响应的leader可能已经被新的leader所替代。线性特性不允许返回过期数据，Raft在不记录日志的情况下需要两个额外的预防措施来避免这一情况的发生。第一，leader必须拥有最新的日志条目。 Leader Completeness Property能够保证leader拥有所有已提交的日志条目。但是在任期之初，leader并不知道那些条目是所有已提交的条目。为了解决这个问题，在任期开始的时候，leader需要提交一个空的 no-op条目。第二，leader在处理只读请求之前必须先检测一下自己是否已经被替代。Raft通过让leader在处理只读请求之前向集群大多数服务器发送心跳信息来完成检测。领导人可以依赖心跳机制来实现一种租约的机制，但是这种方法依赖时序来保证安全性。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wuminxuan.github.io/2022/10/31/Raft-Exntended/" data-id="clbadazj1000mggtxgd1n3nl0" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Raft/" rel="tag">Raft</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-RockerMQ" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/10/27/RockerMQ/" class="article-date">
-  <time datetime="2022-10-27T08:28:31.000Z" itemprop="datePublished">2022-10-27</time>
+    <a href="/2022/10/15/Spark/" class="article-date">
+  <time datetime="2022-10-15T04:18:20.000Z" itemprop="datePublished">2022-10-15</time>
 </a>
     
   <div class="article-category">
@@ -431,7 +126,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/10/27/RockerMQ/">RockerMQ</a>
+      <a class="article-title" href="/2022/10/15/Spark/">Spark</a>
     </h1>
   
 
@@ -439,58 +134,185 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="SpringBoot-RocketMQ整合流程"><a href="#SpringBoot-RocketMQ整合流程" class="headerlink" title="SpringBoot+RocketMQ整合流程"></a>SpringBoot+RocketMQ整合流程</h2><h3 id="安装RocketMQ-Windows下"><a href="#安装RocketMQ-Windows下" class="headerlink" title="安装RocketMQ(Windows下)"></a>安装RocketMQ(Windows下)</h3><h4 id="下载RocketMQ压缩包"><a href="#下载RocketMQ压缩包" class="headerlink" title="下载RocketMQ压缩包"></a>下载RocketMQ压缩包</h4><p><a target="_blank" rel="noopener" href="https://archive.apache.org/dist/rocketmq/4.9.4/rocketmq-all-4.9.4-bin-release.zip">https://archive.apache.org/dist/rocketmq/4.9.4/rocketmq-all-4.9.4-bin-release.zip</a></p>
-<p>下载后解压到一个不包含空格的目录下</p>
-<img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221027204613444.png" alt="image-20221027204613444" style="zoom:67%;" />
-
-
-
-<h4 id="配置环境变量中的系统变量"><a href="#配置环境变量中的系统变量" class="headerlink" title="配置环境变量中的系统变量"></a>配置环境变量中的系统变量</h4><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221027205011948.png" alt="image-20221027205011948" style="zoom:67%;" />
-
-
-
-<h4 id="启动nameserver和broker"><a href="#启动nameserver和broker" class="headerlink" title="启动nameserver和broker"></a>启动nameserver和broker</h4><p>cd到C:\rocketmq\bin目录下</p>
-<p><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221027205051594.png" alt="image-20221027205051594"></p>
-<p>执行 mqnamesrc.cmd，启动nameserver</p>
-<p><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221027205129222.png" alt="image-20221027205129222"></p>
-<p>执行mqbroker.cmd -n localhost:9876，启动broker</p>
-<h3 id="使用Rocket-Dashboard"><a href="#使用Rocket-Dashboard" class="headerlink" title="使用Rocket Dashboard"></a>使用Rocket Dashboard</h3><p>使用Docker运行</p>
-<h4 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull apacherocketmq/rocketmq-dashboard:latest</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name rocketmq-dashboard -e &quot;JAVA_OPTS=-Drocketmq.namesrv.addr=172.19.144.64:9876&quot; -p 8080:8080 -t apacherocketmq/rocketmq-dashboard:latest</span><br></pre></td></tr></table></figure>
-
-<p>JAVA_OPTS=-Drocketmq.namesrv.addr=(无线局域网适配器 WLAN:IPV4地址)</p>
-<img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221027214242077.png" alt="image-20221027214242077" style="zoom:67%;" />
-
-
-
-<h3 id="在SpringBoot中集成"><a href="#在SpringBoot中集成" class="headerlink" title="在SpringBoot中集成"></a>在SpringBoot中集成</h3><h4 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--        rocketMQ依赖--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.rocketmq<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>rocketmq-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="修改配置项-application-yml"><a href="#修改配置项-application-yml" class="headerlink" title="修改配置项(application.yml)"></a>修改配置项(application.yml)</h4><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221027214447789.png" alt="image-20221027214447789" style="zoom:67%;" />
-
-<h4 id="在Rocket-Dashboard中创建Topic"><a href="#在Rocket-Dashboard中创建Topic" class="headerlink" title="在Rocket Dashboard中创建Topic"></a>在Rocket Dashboard中创建Topic</h4><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221027214727826.png" alt="image-20221027214727826" style="zoom:50%;" />
-
-
-
-<h4 id="创建消费者"><a href="#创建消费者" class="headerlink" title="创建消费者"></a>创建消费者</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@RocketMQMessageListener(topic = &quot;operation-topic&quot;,consumerGroup = &quot;consumer-group&quot;,messageModel = MessageModel.CLUSTERING,</span></span><br><span class="line"><span class="meta">consumeMode = ConsumeMode.ORDERLY)</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MqTestListener</span> <span class="keyword">implements</span> <span class="title">RocketMQListener</span>&lt;<span class="title">String</span>&gt; </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onMessage</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        log.info(<span class="string">&quot;接收到消息:&#123;&#125;&quot;</span>,s);</span><br><span class="line">        System.out.println(<span class="string">&quot;消息:&quot;</span>+s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="使用Test方法发送消息"><a href="#使用Test方法发送消息" class="headerlink" title="使用Test方法发送消息"></a>使用Test方法发送消息</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MqTest</span> <span class="keyword">extends</span> <span class="title">SpringBootTicketApplicationTests</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    RocketMQTemplate rocketMQTemplate;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendHello</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        SendResult result=rocketMQTemplate.syncSend(<span class="string">&quot;operation-topic&quot;</span>,<span class="string">&quot;hello,world&quot;</span>);</span><br><span class="line">        log.info(<span class="string">&quot;发送结果:&#123;&#125;&quot;</span>, JSON.toJSONString(result));</span><br><span class="line">        Thread.sleep(<span class="number">60000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>因为发送消息后要等待消费者消费消息再关闭整个Spring进程，所以要sleep一下。</p>
+        <h2 id="Spark-RDD"><a href="#Spark-RDD" class="headerlink" title="Spark RDD"></a>Spark RDD</h2><p>RDD（Resilient Distributed Datasets)，是Spark最基本的数据抽象，是只读的、分区记录的集合，支持并行操作，由外部数据集或其他RDD转换而来。</p>
+<ul>
+<li>一个RDD由一个或多个Partitions组成，每个Partitions会被一个计算任务处理，创建RDD时可以指定Partitions个数，默认采用程序分配到的CPU核心数。</li>
+<li>RDD会保存依赖关系，RDD的转换会生成一个新的依赖关系，在部分Partitions数据丢失后，可以通过依赖关系重新计算这部分分区的数据，而不是对RDD所有分区重新计算。</li>
+</ul>
+<h3 id="RDD操作"><a href="#RDD操作" class="headerlink" title="RDD操作"></a>RDD操作</h3><p>RDD支持两种类型的操作：Transformation(转换，从现有数据集创建新的数据集)、Actions(在数据集上运行计算后将值返回到驱动程序)。RDD中的Transformation操作都是惰性的，只有当遇到Action操作后才会真正执行。</p>
+<h3 id="宽依赖-amp-窄依赖"><a href="#宽依赖-amp-窄依赖" class="headerlink" title="宽依赖&amp;窄依赖"></a>宽依赖&amp;窄依赖</h3><p>RDD和它的父RDDs之间的依赖关系有两种：</p>
+<p>Narrow Dependency(窄依赖)：父RDDs的一个Partition最多被子RDDs的一个Partition依赖。</p>
+<p>Wide Dependency(宽依赖)：父RDDs的一个Parition可能被子RDDs的多个Paritions依赖。</p>
+<p>窄依赖允许在一个集群节点上以流水线方式计算RDD之间的数据（不需要等待所有父分区的Partitions都在各自的集群节点上计算完成后，才进入到下一个计算）；而宽依赖需要等待所有父分区的数据都计算好后，才能进入下一个计算阶段。</p>
+<p>窄依赖在丢失分区数据后，只需要对丢失Partition的父RDD中对应的Partition进行计算，并且不同节点间可以并行计算；而宽依赖需要计算所有的父分区数据。</p>
+<h3 id="RDD算子"><a href="#RDD算子" class="headerlink" title="RDD算子"></a>RDD算子</h3><h4 id="Transformation算子"><a href="#Transformation算子" class="headerlink" title="Transformation算子"></a>Transformation算子</h4><table>
+<thead>
+<tr>
+<th>Transformation 算子</th>
+<th>Meaning（含义）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>map</strong>(<em>func</em>)</td>
+<td>对原 RDD 中每个元素运用 <em>func</em> 函数，并生成新的 RDD</td>
+</tr>
+<tr>
+<td><strong>filter</strong>(<em>func</em>)</td>
+<td>对原 RDD 中每个元素使用<em>func</em> 函数进行过滤，并生成新的 RDD</td>
+</tr>
+<tr>
+<td><strong>flatMap</strong>(<em>func</em>)</td>
+<td>与 map 类似，但是每一个输入的 item 被映射成 0 个或多个输出的 items（ <em>func</em> 返回类型需要为 Seq ）。</td>
+</tr>
+<tr>
+<td><strong>mapPartitions</strong>(<em>func</em>)</td>
+<td>与 map 类似，但函数单独在 RDD 的每个分区上运行， <em>func</em>函数的类型为  Iterator&lt;T&gt; =&gt; Iterator&lt;U&gt; ，其中 T 是 RDD 的类型，即 RDD[T]</td>
+</tr>
+<tr>
+<td><strong>mapPartitionsWithIndex</strong>(<em>func</em>)</td>
+<td>与 mapPartitions 类似，但 <em>func</em> 类型为 (Int, Iterator&lt;T&gt;) =&gt; Iterator&lt;U&gt; ，其中第一个参数为分区索引</td>
+</tr>
+<tr>
+<td><strong>sample</strong>(<em>withReplacement</em>, <em>fraction</em>, <em>seed</em>)</td>
+<td>数据采样，有三个可选参数：设置是否放回（withReplacement）、采样的百分比（<em>fraction</em>）、随机数生成器的种子（seed）；</td>
+</tr>
+<tr>
+<td><strong>union</strong>(<em>otherDataset</em>)</td>
+<td>合并两个 RDD</td>
+</tr>
+<tr>
+<td><strong>intersection</strong>(<em>otherDataset</em>)</td>
+<td>求两个 RDD 的交集</td>
+</tr>
+<tr>
+<td><strong>distinct</strong>([<em>numTasks</em>]))</td>
+<td>去重</td>
+</tr>
+<tr>
+<td><strong>groupByKey</strong>([<em>numTasks</em>])</td>
+<td>按照 key 值进行分区，即在一个 (K, V) 对的 dataset 上调用时，返回一个 (K, Iterable&lt;V&gt;) <br/><strong>Note:</strong> 如果分组是为了在每一个 key 上执行聚合操作（例如，sum 或 average)，此时使用 <code>reduceByKey</code> 或 <code>aggregateByKey</code> 性能会更好<br><strong>Note:</strong> 默认情况下，并行度取决于父 RDD 的分区数。可以传入 <code>numTasks</code> 参数进行修改。</td>
+</tr>
+<tr>
+<td><strong>reduceByKey</strong>(<em>func</em>, [<em>numTasks</em>])</td>
+<td>按照 key 值进行分组，并对分组后的数据执行归约操作。</td>
+</tr>
+<tr>
+<td><strong>aggregateByKey</strong>(<em>zeroValue</em>,<em>numPartitions</em>)(<em>seqOp</em>, <em>combOp</em>, [<em>numTasks</em>])</td>
+<td>当调用（K，V）对的数据集时，返回（K，U）对的数据集，其中使用给定的组合函数和 zeroValue 聚合每个键的值。与 groupByKey 类似，reduce 任务的数量可通过第二个参数进行配置。</td>
+</tr>
+<tr>
+<td><strong>sortByKey</strong>([<em>ascending</em>], [<em>numTasks</em>])</td>
+<td>按照 key 进行排序，其中的 key 需要实现 Ordered 特质，即可比较</td>
+</tr>
+<tr>
+<td><strong>join</strong>(<em>otherDataset</em>, [<em>numTasks</em>])</td>
+<td>在一个 (K, V) 和 (K, W) 类型的 dataset 上调用时，返回一个 (K, (V, W)) pairs 的 dataset，等价于内连接操作。如果想要执行外连接，可以使用 <code>leftOuterJoin</code>, <code>rightOuterJoin</code> 和 <code>fullOuterJoin</code> 等算子。</td>
+</tr>
+<tr>
+<td><strong>cogroup</strong>(<em>otherDataset</em>, [<em>numTasks</em>])</td>
+<td>在一个 (K, V) 对的 dataset 上调用时，返回一个 (K, (Iterable&lt;V&gt;, Iterable&lt;W&gt;)) tuples 的 dataset。</td>
+</tr>
+<tr>
+<td><strong>cartesian</strong>(<em>otherDataset</em>)</td>
+<td>在一个 T 和 U 类型的 dataset 上调用时，返回一个 (T, U) 类型的 dataset（即笛卡尔积）。</td>
+</tr>
+<tr>
+<td><strong>coalesce</strong>(<em>numPartitions</em>)</td>
+<td>将 RDD 中的分区数减少为 numPartitions。</td>
+</tr>
+<tr>
+<td><strong>repartition</strong>(<em>numPartitions</em>)</td>
+<td>随机重新调整 RDD 中的数据以创建更多或更少的分区，并在它们之间进行平衡。</td>
+</tr>
+<tr>
+<td><strong>repartitionAndSortWithinPartitions</strong>(<em>partitioner</em>)</td>
+<td>根据给定的 partitioner（分区器）对 RDD 进行重新分区，并对分区中的数据按照 key 值进行排序。这比调用 <code>repartition</code> 然后再 sorting（排序）效率更高，因为它可以将排序过程推送到 shuffle 操作所在的机器。</td>
+</tr>
+</tbody></table>
+<h4 id="Action算子"><a href="#Action算子" class="headerlink" title="Action算子"></a>Action算子</h4><table>
+<thead>
+<tr>
+<th>Action（动作）</th>
+<th>Meaning（含义）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>reduce</strong>(<em>func</em>)</td>
+<td>使用函数<em>func</em>执行归约操作</td>
+</tr>
+<tr>
+<td><strong>collect</strong>()</td>
+<td>以一个 array 数组的形式返回 dataset 的所有元素，适用于小结果集。</td>
+</tr>
+<tr>
+<td><strong>count</strong>()</td>
+<td>返回 dataset 中元素的个数。</td>
+</tr>
+<tr>
+<td><strong>first</strong>()</td>
+<td>返回 dataset 中的第一个元素，等价于 take(1)。</td>
+</tr>
+<tr>
+<td><strong>take</strong>(<em>n</em>)</td>
+<td>将数据集中的前 <em>n</em> 个元素作为一个 array 数组返回。</td>
+</tr>
+<tr>
+<td><strong>takeSample</strong>(<em>withReplacement</em>, <em>num</em>, [<em>seed</em>])</td>
+<td>对一个 dataset 进行随机抽样</td>
+</tr>
+<tr>
+<td><strong>takeOrdered</strong>(<em>n</em>, <em>[ordering]</em>)</td>
+<td>按自然顺序（natural order）或自定义比较器（custom comparator）排序后返回前 <em>n</em> 个元素。只适用于小结果集，因为所有数据都会被加载到驱动程序的内存中进行排序。</td>
+</tr>
+<tr>
+<td><strong>saveAsTextFile</strong>(<em>path</em>)</td>
+<td>将 dataset 中的元素以文本文件的形式写入本地文件系统、HDFS 或其它 Hadoop 支持的文件系统中。Spark 将对每个元素调用 toString 方法，将元素转换为文本文件中的一行记录。</td>
+</tr>
+<tr>
+<td><strong>saveAsSequenceFile</strong>(<em>path</em>)</td>
+<td>将 dataset 中的元素以 Hadoop SequenceFile 的形式写入到本地文件系统、HDFS 或其它 Hadoop 支持的文件系统中。该操作要求 RDD 中的元素需要实现 Hadoop 的 Writable 接口。对于 Scala 语言而言，它可以将 Spark 中的基本数据类型自动隐式转换为对应 Writable 类型。(目前仅支持 Java and Scala)</td>
+</tr>
+<tr>
+<td><strong>saveAsObjectFile</strong>(<em>path</em>)</td>
+<td>使用 Java 序列化后存储，可以使用 <code>SparkContext.objectFile()</code> 进行加载。(目前仅支持 Java and Scala)</td>
+</tr>
+<tr>
+<td><strong>countByKey</strong>()</td>
+<td>计算每个键出现的次数。</td>
+</tr>
+<tr>
+<td><strong>foreach</strong>(<em>func</em>)</td>
+<td>遍历 RDD 中每个元素，并对其执行<em>fun</em>函数</td>
+</tr>
+</tbody></table>
+<h2 id="Spark作业的不同提交形式"><a href="#Spark作业的不同提交形式" class="headerlink" title="Spark作业的不同提交形式"></a>Spark作业的不同提交形式</h2><p>主要分为Local模式、StandAlone模式、Yarn模式，其中StandAlone模式和Yarn模式分别支持client、cluster两种deploy-mode，默认Client。</p>
+<p>Local模式提交的作业运行在本地；StandAlone模式采用Spark内置的集群模式，使用内置的资源管理器进行管理；Yarn模式将作业提交到Yarn上运行，此时不需要再启动Master节点和Worker节点，由Yarn进行任务调度。</p>
+<p>Client Mode下，Spark Driver在提交作业的客户端进程中运行。(没有运行完成作业，不能关闭该客户端)。</p>
+<p>Cluster Mode下，Spark Driver在应用程序的Master进程内运行。</p>
+<h2 id="Spark-SQL"><a href="#Spark-SQL" class="headerlink" title="Spark SQL"></a>Spark SQL</h2><p>Spark SQL是Spark的一个子模块，主要用于操作结构化数据。</p>
+<h3 id="DataFrame-amp-DataSet"><a href="#DataFrame-amp-DataSet" class="headerlink" title="DataFrame &amp; DataSet"></a>DataFrame &amp; DataSet</h3><p>DataFrame是Spark SQL为了支持结构化数据的处理提供的一种数据结构，是一个由具名列组成的数据集，在概念上等同于关系数据库中的表，在多种语言中都定义了DataFrame的抽象。</p>
+<p>DataSet相比于DataFrame，具备了强类型的特点，同时支持Lambda函数，但只能在Scala和Java中使用。</p>
+<p>两者的主要区别在于：DataFrame对于Syntax Errors是编译时错误，而对于Analysis Error是运行时错误。DataSet中两者都是运行时错误。DataSet是Typed而DataFrame是Untyped，DataSet的类型由Case Class(Scala)或Java Bean(Java)来明确指定，所以字段名和类型错误在编译时就会被IDE发现。</p>
+<h3 id="DataFrame-amp-DataSet-amp-RDDs"><a href="#DataFrame-amp-DataSet-amp-RDDs" class="headerlink" title="DataFrame &amp; DataSet &amp; RDDs"></a>DataFrame &amp; DataSet &amp; RDDs</h3><ul>
+<li>RDDs适合非结构化处理，DataFrame和DataSet适合结构化数据和半结构化数据的处理。</li>
+<li>DataFrame&amp;DataSet有统一的Structed API访问，RDDs更多在函数式编程场景中使用。</li>
+</ul>
+<h3 id="Spark-SQL的运行原理"><a href="#Spark-SQL的运行原理" class="headerlink" title="Spark SQL的运行原理"></a>Spark SQL的运行原理</h3><ol>
+<li>编写DataFrame/Dataset/SQL代码；</li>
+<li>如果代码没有编译错误，Spark会将其转换为一个逻辑计划；</li>
+<li>Spark将此逻辑计划转换为物理计划，同时进行代码优化；</li>
+<li>Spark在集群上执行这个物理计划，基于RDD操作。</li>
+</ol>
+<h2 id="Spark-Streaming"><a href="#Spark-Streaming" class="headerlink" title="Spark Streaming"></a>Spark Streaming</h2><p>​    Spark Streaming是Spark的一个子模块，可以从 HDFS，Flume，Kafka，Twitter 和 ZeroMQ 读取数据，也支持自定义数据源。</p>
+<p>​    Spark Streaming提供离散流(DStream)的高级抽象，将数据流拆分成极小粒度的RDD，使其能得到接近于流处理的效果，但其本质上还是批处理(或者说是微批处理)。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wuminxuan.github.io/2022/10/27/RockerMQ/" data-id="clbadazj3000uggtx5g4r52hm" class="article-share-link">Share</a>
+      <a data-url="http://wuminxuan.github.io/2022/10/15/Spark/" data-id="clbaeg53e000u40txcpx3ald5" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RocketMQ/" rel="tag">RocketMQ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" rel="tag">消息队列</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spark/" rel="tag">Spark</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/" rel="tag">云计算</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li></ul>
 
     </footer>
   </div>
@@ -499,14 +321,14 @@
 
 
   
-    <article id="post-身份认证方案" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-GFS" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/10/24/%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E6%96%B9%E6%A1%88/" class="article-date">
-  <time datetime="2022-10-24T05:27:07.000Z" itemprop="datePublished">2022-10-24</time>
+    <a href="/2022/10/14/GFS/" class="article-date">
+  <time datetime="2022-10-14T04:20:41.000Z" itemprop="datePublished">2022-10-14</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80/">技术基础</a>
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%AE%BA%E6%96%87%E7%A0%94%E8%AF%BB/">技术论文研读</a>
   </div>
 
   </div>
@@ -517,7 +339,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/10/24/%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E6%96%B9%E6%A1%88/">身份认证方案</a>
+      <a class="article-title" href="/2022/10/14/GFS/">GFS</a>
     </h1>
   
 
@@ -525,30 +347,39 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>对于服务端渲染：推荐使用Session认证；而对于前后端分离的项目：推荐使用JWT</p>
-<h3 id="Session认证"><a href="#Session认证" class="headerlink" title="Session认证"></a>Session认证</h3><p>由于HTTP协议是无状态的，所以为了使得不需要每次请求都要用户重新认证，我们一般将一些用户认证信息保存在浏览器的Cookie中。客户端重新发起请求时，会自动将当前域名下所有的未过期Cookie一同发送给服务端。</p>
-<p>Cookie是存储在浏览器中，浏览器可以读写Cookie，因此不应将敏感的隐私数据存在Cookie中。</p>
-<p>Session的工作原理如下：</p>
-<ol>
-<li>浏览器第一次发送请求到服务端，服务端认证通过以后，在缓存(一般采用Redis)中创建一个Session，同时在请求头中设置Cookie(name为JSESSIONID,value为sessionID)，浏览器会根据请求头保存该Cookie</li>
-<li>浏览器再次请求服务端时，会携带该Cookie，服务端根据cookie中的sessionID去缓存中查找对应的Session，完成认证</li>
-</ol>
-<p>Session认证的局限性：需要配合Cookie使用，Cookie默认不支持跨域，前端跨域请求后端接口时，需要做额外的很多配置。所以前端需要跨域请求后端接口时，推荐使用JWT认证机制。</p>
-<h3 id="JWT认证"><a href="#JWT认证" class="headerlink" title="JWT认证"></a>JWT认证</h3><p>Json Web Token，是目前最流行的跨域认证解决方案。</p>
-<p>工作原理如下：</p>
-<ol>
-<li>客户端第一次发送请求给服务端，服务端验证用户的账号与密码通过后，将用户的信息对象，经过加密后生成Token字符串，并将Token保存在localStorage或SessionStorage上。</li>
-<li>客户端再次发送请求时，通过请求头的Authorization字段，将Token发送给服务器。服务器将Token字符串还原成用户信息对象，完成认证。</li>
-</ol>
-<p>JWT的组成部分：Header(头部)，Payload(有效载荷)，Signature(签名)。三者之间使用”.”分割。Header和Signature是安全性相关部分，Payload部分存储的是用户信息经过加密之后生成的字符串。</p>
+        <p>GFS(Google File System)作为分布式文件系统，是google三剑客的基础。</p>
+<h3 id="搜索引擎的支撑架构是什么？"><a href="#搜索引擎的支撑架构是什么？" class="headerlink" title="搜索引擎的支撑架构是什么？"></a>搜索引擎的支撑架构是什么？</h3><p><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221011213043817.png" alt="image-20221011213043817"></p>
+<h3 id="如何保存超大文件？"><a href="#如何保存超大文件？" class="headerlink" title="如何保存超大文件？"></a>如何保存超大文件？</h3><p>结构一：采用主从结构，在Master中保存索引信息，索引到对应数据Chunk的ChunkServer中。</p>
+<p>Master+many ChunkServers</p>
+<img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221011213416474.png" alt="image-20221011213416474" style="zoom:50%;" />
+
+
+
+<p>缺点：ChunkServer的任何改变都要通知Master</p>
+<p>结构二：</p>
+<p>减少结构一中Master的数据和流量，通过系统设计中耦合和聚合的思想，将具体的索引信息下发到ChunkServer中，而只在Master中保存数据到ChunkServer的记录，当本地数据有变化时，只在本地更改索引就可以了，Master不用修改。</p>
+<img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221011213803280.png" alt="image-20221011213803280" style="zoom:50%;" />
+
+
+
+<h3 id="减少ChunkServer挂掉带来的损失"><a href="#减少ChunkServer挂掉带来的损失" class="headerlink" title="减少ChunkServer挂掉带来的损失"></a>减少ChunkServer挂掉带来的损失</h3><p>复制Chunks，在多个Server上保存相同的Chunk(3个通常)</p>
+<h3 id="恢复损坏的Chunk"><a href="#恢复损坏的Chunk" class="headerlink" title="恢复损坏的Chunk"></a>恢复损坏的Chunk</h3><p>向Master求助，从存有相同Chunk的ChunkServer中请求数据。</p>
+<h3 id="如何发现ChunkServer挂掉？"><a href="#如何发现ChunkServer挂掉？" class="headerlink" title="如何发现ChunkServer挂掉？"></a>如何发现ChunkServer挂掉？</h3><p>心跳机制</p>
+<h3 id="ChunkServer挂掉后恢复数据"><a href="#ChunkServer挂掉后恢复数据" class="headerlink" title="ChunkServer挂掉后恢复数据"></a>ChunkServer挂掉后恢复数据</h3><p>当ChunkServer挂掉后，就在Master中Chunk-&gt;CS的映射关系表中删掉对应的项。同时Master中有一个修复进程，当观察到某个Chunk对应的ChunkServer数少于三个时，就会按照基于存活副本数的恢复策略，优先修复存活副本数少的Chunk。</p>
+<h3 id="如何应对热点？"><a href="#如何应对热点？" class="headerlink" title="如何应对热点？"></a>如何应对热点？</h3><p>Master中的热点平衡进程会记录一些访问信息和资源利用率等，当副本过度繁忙时，将对应的Chunk复制到更多的ChunkServer中，基于ChunkServer的带宽和硬盘利用率来选择复制到哪个ChunkServer中。</p>
+<h3 id="写文件过程？"><a href="#写文件过程？" class="headerlink" title="写文件过程？"></a>写文件过程？</h3><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221011215038558.png" alt="image-20221011215038558" style="zoom:50%;" />
+
+<p>1、串行方式传递数据，按照距离客户端的远近考虑串行顺序，而不必先考虑谁是Primary谁是Replicas。</p>
+<p>2、两阶段提交，先缓存数据，再由Primary发出指令完成写入。</p>
+<p>3、当出现写错时，不处理错误，直接告诉客户端重试。（分布式系统中越想修复错误，越容易复杂化，奥卡姆剃刀原理）</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wuminxuan.github.io/2022/10/24/%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E6%96%B9%E6%A1%88/" data-id="clbadazjk002vggtx960c5o8x" class="article-share-link">Share</a>
+      <a data-url="http://wuminxuan.github.io/2022/10/14/GFS/" data-id="clbaeg534000840txhlkjfpun" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%89%E5%85%A8/" rel="tag">安全</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" rel="tag">文件系统</a></li></ul>
 
     </footer>
   </div>
@@ -557,10 +388,10 @@
 
 
   
-    <article id="post-消息队列" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-HBase" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/10/19/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" class="article-date">
-  <time datetime="2022-10-19T05:17:15.000Z" itemprop="datePublished">2022-10-19</time>
+    <a href="/2022/10/13/HBase/" class="article-date">
+  <time datetime="2022-10-13T05:06:03.000Z" itemprop="datePublished">2022-10-13</time>
 </a>
     
   <div class="article-category">
@@ -575,7 +406,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/10/19/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">消息队列</a>
+      <a class="article-title" href="/2022/10/13/HBase/">HBase</a>
     </h1>
   
 
@@ -583,24 +414,151 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="消息队列的三个经典场景"><a href="#消息队列的三个经典场景" class="headerlink" title="消息队列的三个经典场景"></a>消息队列的三个经典场景</h3><p>异步、削峰、解耦</p>
-<p>异步：一个业务流程因为需求的增加变长了，所对应的用户响应时间也变长。为了减少响应时间，采用消息队列去做异步请求，当一个步骤完成时，发送消息通知依赖它的其它步骤。</p>
-<p>解耦：一个业务流程当增加新需求时，需要重新编码然后重新发布。而使用消息队列，只需要把一个需求“执行成功”的消息发送给其他部件，当新增部件时，只需要让这个部件去订阅这个成功的消息。解除了系统部件之间的耦合。</p>
-<p>削峰：使用消息队列缓存消息，在请求峰值的时候，服务器会根据自己的处理能力去消费消息队列中的请求。</p>
-<h3 id="消息队列的三个问题"><a href="#消息队列的三个问题" class="headerlink" title="消息队列的三个问题"></a>消息队列的三个问题</h3><p>系统复杂性、数据一致性、可用性</p>
-<p>系统复杂性：引入中间件本来就会带来额外的技术成本，增高系统的复杂性</p>
-<p>数据一致性：分布式服务的通病，消息队列中，一个业务完成后，只管通知其他的业务而不管其他的业务是否成功，可能会导致数据的不一致。（采用分布式事务解决）</p>
-<p>可用性：如果中间价挂掉，依赖其他业务消息的业务全部没法正常执行。</p>
-<h3 id="消息队列的主流实现"><a href="#消息队列的主流实现" class="headerlink" title="消息队列的主流实现"></a>消息队列的主流实现</h3><p>现在主要流行使用RocketMQ和Kafka。</p>
-<p><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/v2-8234b69f5e46550bc5d95db96251d8b6_1440w.webp" alt="img"></p>
+        <p>HBase是一个构建在Hadoop上的面向列的数据库管理系统。Hadoop可以通过HDFS存储结构化、半结构化、非结构化的数据，但是它只能执行批处理，也只能以顺序存储的方式访问数据，无法对数据进行随机访问。而HBase基于Google Bigtable实现，将数据存储在HDFS上，客户端通过HBase实现对HDFS上数据的随机访问。</p>
+<h3 id="HBase-Table"><a href="#HBase-Table" class="headerlink" title="HBase Table"></a>HBase Table</h3><p>HBase是面向列的，更准确地说，HBase是面向列族的。表的Schema仅定义列族，表有多个列族，每个列族包含有相关的任意数量的列，列由多个单元格组成，单元格可以存储多个版本的数据，多个版本的数据通过时间戳进行区分。</p>
+<p>所有的列族都需要在创建表时进行定义，列族中的列使用列族名作为前缀，使用列限定符作为后缀。如courses:history是一个列，courses是列族，history则是具体的列限定符(也可以理解为列名)。列限定符不是表Schema的一部分，插入数据时可以动态创建列。</p>
+<h3 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构"></a>存储结构</h3><h4 id="Regions"><a href="#Regions" class="headerlink" title="Regions"></a>Regions</h4><p>HBase Table中的所有行按照Row Key的字典序进行排序，一个表通过Row Keys的范围被水平切分成了多个Region，每个表开始只有一个Region，随着数据增加，Region会增大，当增大到一个阈值时，一个Region会被分为两个Regions。Region是HBase中分布式存储和负载均衡的最小单元，同一个Region不会被拆分存储到多个Region Server上。（Region 对应 Bigtable中的SSTable）</p>
+<h4 id="Region-Server"><a href="#Region-Server" class="headerlink" title="Region Server"></a>Region Server</h4><p>Region Server运行在HDFS的DataNode上，有以下组件：</p>
+<p>WAL(Write Ahead Log，预写日志)：内存数据恢复。</p>
+<p>BlockCache：读缓存</p>
+<p>MemStore：写缓存</p>
+<p>HFile：将行数据按照KV形式存储在HDFS上。</p>
+<h3 id="HBase系统架构"><a href="#HBase系统架构" class="headerlink" title="HBase系统架构"></a>HBase系统架构</h3><p>Master/Slave架构，由三种组件组成：</p>
+<p>Zookeeper：保证集群中只有一个Master，存储Region的寻址入口，监控Region Server状态，存储HBase的Schema</p>
+<p>Master：为Region Server分配Region，Region Server的负载均衡，Region Server的失效检测和恢复，GFS上的垃圾文件回收，处理Schema的更新请求。</p>
+<p>Region Server：维护Region，处理IO请求；切分过大的Region。</p>
+<p>HBase 使用 ZooKeeper 作为分布式协调服务来维护集群中的服务器状态。 Zookeeper 负责维护可用服务列表，并提供服务故障通知等服务</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wuminxuan.github.io/2022/10/19/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" data-id="clbadazjk002uggtx69zc5yxq" class="article-share-link">Share</a>
+      <a data-url="http://wuminxuan.github.io/2022/10/13/HBase/" data-id="clbaeg534000740txd52bbqvh" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" rel="tag">消息队列</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/" rel="tag">高并发</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%98%E5%82%A8/" rel="tag">存储</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-BigTable" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/10/12/BigTable/" class="article-date">
+  <time datetime="2022-10-12T05:03:03.000Z" itemprop="datePublished">2022-10-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%AE%BA%E6%96%87%E7%A0%94%E8%AF%BB/">技术论文研读</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/10/12/BigTable/">BigTable</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​    Bigtable 是一个分布式的结构化数据存储系统，它被设计用来处理海量数据：通常是分布在数千台普通服务器上的PB 级的数据。Google 的很多项目使用Bigtable 存储数据，包括Web 索引、GoogleEarth、Google Finance。<br>     Bigtable 已经实现了下面的几个目标：适用性广泛、可扩展、高性能和高可用性,Bigtable 是一个稀疏的、分布式的、持久化存储的多维度排序Map。</p>
+<h3 id="如何保存一个很大的表？"><a href="#如何保存一个很大的表？" class="headerlink" title="如何保存一个很大的表？"></a>如何保存一个很大的表？</h3><p>将一个大表分成多个小表，每个小表里面是一些排过序的K，V串，用一个MetaData of Table保存每一个小表的存储位置。</p>
+<img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221013113258700.png" alt="image-20221013113258700" style="zoom:50%;" />
+
+
+
+<h3 id="如何保存一个超大的表？"><a href="#如何保存一个超大的表？" class="headerlink" title="如何保存一个超大的表？"></a>如何保存一个超大的表？</h3><p>再递归地拆一层，大表变成Tablet，小表变成SSTable</p>
+<img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221013113523941.png" alt="image-20221013113523941" style="zoom:33%;" />
+
+<p>Metadata of Table=a list of tablets</p>
+<p>Tablet=a list of SSTables</p>
+<p>SSTable=a list of sorted&lt;key,value&gt;</p>
+<h3 id="如何写数据？"><a href="#如何写数据？" class="headerlink" title="如何写数据？"></a>如何写数据？</h3><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221013113809165.png" alt="image-20221013113809165" style="zoom:33%;" />
+
+<p>通过先写入memTable（内存表）来加速，因为内存中是随机存取，更好排序</p>
+<p>Tablet=memTable+a list of SSTables</p>
+<h3 id="如何避免内存数据丢失？"><a href="#如何避免内存数据丢失？" class="headerlink" title="如何避免内存数据丢失？"></a>如何避免内存数据丢失？</h3><p>写入到memTable的同时，在tabletLog上添加一条更改的日志记录，虽然这时候往硬盘上写也会减速，但由于是顺序写入，所以相对较快，而且可能不是在本地写入，而是在远程，所以可能不会影响。</p>
+<img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221013115010963.png" alt="image-20221013115010963" style="zoom:50%;" />
+
+<p>A Tablet=memTable + a list of SSTables + log</p>
+<h3 id="如何加速读数据？"><a href="#如何加速读数据？" class="headerlink" title="如何加速读数据？"></a>如何加速读数据？</h3><p>建立索引，将SSTable拆成多个数据块。</p>
+<img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221013115456847.png" alt="image-20221013115456847" style="zoom:33%;" />
+
+
+
+<h3 id="继续加速？"><a href="#继续加速？" class="headerlink" title="继续加速？"></a>继续加速？</h3><p>使用BloomFilter过滤，判断一个数据在不在一个SSTable中。</p>
+<p>SSTable=a list of 64k blocks + index +bloomfilter</p>
+<p>布隆过滤器可以判断一个数据一定不在一个SSTable中，而不能判断一个数据是否一定在一个SSTable中。</p>
+<h4 id="BloomFilter"><a href="#BloomFilter" class="headerlink" title="BloomFilter"></a>BloomFilter</h4><p>一个01组成的串，对于一个key，采用多种方式Hash，映射到串上的多个位置，映射到的位置变为1。查找时，通过同样的Hash方式映射到位置，如果所有的位置都为1，则说明key可能存在（因为可能别的key映射到的Hash冲突）；如果有一个位置不为1，则说明key肯定不存在。</p>
+<h3 id="BigTable结构"><a href="#BigTable结构" class="headerlink" title="BigTable结构"></a>BigTable结构</h3><p><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221013122012438.png" alt="image-20221013122012438"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wuminxuan.github.io/2022/10/12/BigTable/" data-id="clbaeg533000640tx4b7tam4p" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%98%E5%82%A8/" rel="tag">存储</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-ssh" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/10/08/ssh/" class="article-date">
+  <time datetime="2022-10-08T12:07:01.000Z" itemprop="datePublished">2022-10-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80/">技术基础</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/10/08/ssh/">ssh</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>ssh(Secure SHell protocol)，在不安全网络上提供安全远程登录及其它安全网络服务。相比传统的节点间通信的方式，如telnet、ftp等，ssh提供了一个安全的信道。</p>
+<h3 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h3><p>1.远程联机使用shell服务器(最常用的一种)</p>
+<p>2.类似ftp的sftp-server，更安全的FTP服务</p>
+<h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><p>1.服务器生成公钥、私钥存放在指定目录下（通常/etc/ssh/ssh_host+*）</p>
+<p>2.用户请求联机</p>
+<p>3.服务器传送公钥给客户端(明码传送，公钥不担心泄露)</p>
+<p>4.客户端接收到服务器的公钥后，首先搜索之前是否有过相同的公钥，如果没有过，则提醒用户询问是否连接</p>
+<p>5.生成会话密钥（对称加密的加密强度高，难以破解，但密钥本身的传输需要通过明文进行，密钥本身可能会泄露；非对称加密则使用公钥、私钥来分别加密、解密，但加解密速度慢。所以ssh结合这两者，首先使用非对称加密在会话初始阶段进行密钥协商，此后使用协商出来的密钥进行对称加密）</p>
+<p>6.在加密信道上进行通信</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wuminxuan.github.io/2022/10/08/ssh/" data-id="clbaeg53f001040txasjt6fa5" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%89%E5%85%A8/" rel="tag">安全</a></li></ul>
 
     </footer>
   </div>
@@ -644,7 +602,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Bert/" style="font-size: 10px;">Bert</a> <a href="/tags/Code-Completion/" style="font-size: 10px;">Code Completion</a> <a href="/tags/KMP/" style="font-size: 10px;">KMP</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/OLAP/" style="font-size: 10px;">OLAP</a> <a href="/tags/OLTP/" style="font-size: 10px;">OLTP</a> <a href="/tags/Raft/" style="font-size: 10px;">Raft</a> <a href="/tags/RocketMQ/" style="font-size: 10px;">RocketMQ</a> <a href="/tags/Spark/" style="font-size: 12.5px;">Spark</a> <a href="/tags/SpringBoot/" style="font-size: 10px;">SpringBoot</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/" style="font-size: 10px;">云计算</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">内存数据库</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 20px;">大数据</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%AE%97%E6%B3%95/" style="font-size: 10px;">字符串算法</a> <a href="/tags/%E5%AD%98%E5%82%A8/" style="font-size: 17.5px;">存储</a> <a href="/tags/%E5%AE%89%E5%85%A8/" style="font-size: 12.5px;">安全</a> <a href="/tags/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">文件系统</a> <a href="/tags/%E6%B5%81%E8%AE%A1%E7%AE%97/" style="font-size: 15px;">流计算</a> <a href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" style="font-size: 15px;">消息队列</a> <a href="/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/" style="font-size: 10px;">高并发</a>
+      <a href="/tags/Bert/" style="font-size: 10px;">Bert</a> <a href="/tags/Code-Completion/" style="font-size: 10px;">Code Completion</a> <a href="/tags/KMP/" style="font-size: 10px;">KMP</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/OLAP/" style="font-size: 10px;">OLAP</a> <a href="/tags/OLTP/" style="font-size: 10px;">OLTP</a> <a href="/tags/Raft/" style="font-size: 10px;">Raft</a> <a href="/tags/RocketMQ/" style="font-size: 10px;">RocketMQ</a> <a href="/tags/Spark/" style="font-size: 10px;">Spark</a> <a href="/tags/SpringBoot/" style="font-size: 10px;">SpringBoot</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/" style="font-size: 10px;">云计算</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">内存数据库</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 20px;">大数据</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%AE%97%E6%B3%95/" style="font-size: 10px;">字符串算法</a> <a href="/tags/%E5%AD%98%E5%82%A8/" style="font-size: 17.5px;">存储</a> <a href="/tags/%E5%AE%89%E5%85%A8/" style="font-size: 12.5px;">安全</a> <a href="/tags/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">文件系统</a> <a href="/tags/%E6%B5%81%E8%AE%A1%E7%AE%97/" style="font-size: 12.5px;">流计算</a> <a href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" style="font-size: 15px;">消息队列</a> <a href="/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/" style="font-size: 10px;">高并发</a>
     </div>
   </div>
 
@@ -653,7 +611,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li></ul>
     </div>
   </div>
 
@@ -666,23 +624,23 @@
       <ul>
         
           <li>
-            <a href="/2022/12/05/Kafka/">Kafka</a>
+            <a href="/2022/11/24/KMP/">KMP</a>
           </li>
         
           <li>
-            <a href="/2022/12/05/Flink/">Flink</a>
+            <a href="/2022/11/16/An%20Empirical%20Study%20on%20the%20Usage%20of%20BERT%20Models%20for%20Code%20Completion/">An Empirical Study on the Usage of BERT Models for Code Completion</a>
           </li>
         
           <li>
-            <a href="/2022/12/05/Storm/">Storm</a>
+            <a href="/2022/11/12/Flink/">Flink</a>
           </li>
         
           <li>
-            <a href="/2022/12/05/Spark%20Streaming/">Spark Streaming</a>
+            <a href="/2022/10/31/Raft-Exntended/">Raft-Exntended</a>
           </li>
         
           <li>
-            <a href="/2022/12/05/HTAP/">HTAP</a>
+            <a href="/2022/10/27/RocketMQ/">RocketMQ</a>
           </li>
         
       </ul>

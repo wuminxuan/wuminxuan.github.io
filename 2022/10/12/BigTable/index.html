@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>BigTable | 吴旻轩的个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="​    Bigtable 是一个分布式的结构化数据存储系统，它被设计用来处理海量数据：通常是分布在数千台普通服务器上的PB 级的数据。Google 的很多项目使用Bigtable 存储数据，包括Web 索引、GoogleEarth、Google Finance。     Bigtable 已经实现了下面的几个目标：适用性广泛、可扩展、高性能和高可用性,Bigtable 是一个稀疏的、分布式的、持">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BigTable">
+<meta property="og:url" content="http://wuminxuan.github.io/2022/10/12/BigTable/index.html">
+<meta property="og:site_name" content="吴旻轩的个人博客">
+<meta property="og:description" content="​    Bigtable 是一个分布式的结构化数据存储系统，它被设计用来处理海量数据：通常是分布在数千台普通服务器上的PB 级的数据。Google 的很多项目使用Bigtable 存储数据，包括Web 索引、GoogleEarth、Google Finance。     Bigtable 已经实现了下面的几个目标：适用性广泛、可扩展、高性能和高可用性,Bigtable 是一个稀疏的、分布式的、持">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221013113258700.png">
+<meta property="og:image" content="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221013113523941.png">
+<meta property="og:image" content="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221013113809165.png">
+<meta property="og:image" content="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221013115010963.png">
+<meta property="og:image" content="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221013115456847.png">
+<meta property="og:image" content="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221013122012438.png">
+<meta property="article:published_time" content="2022-10-12T05:03:03.000Z">
+<meta property="article:modified_time" content="2022-12-05T06:15:02.033Z">
+<meta property="article:author" content="zh-CN">
+<meta property="article:tag" content="大数据">
+<meta property="article:tag" content="存储">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221013113258700.png">
+  
+    <link rel="alternate" href="/atom.xml" title="吴旻轩的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">吴旻轩的个人博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wuminxuan.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-BigTable" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/10/12/BigTable/" class="article-date">
+  <time datetime="2022-10-12T05:03:03.000Z" itemprop="datePublished">2022-10-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%AE%BA%E6%96%87%E7%A0%94%E8%AF%BB/">技术论文研读</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      BigTable
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​    Bigtable 是一个分布式的结构化数据存储系统，它被设计用来处理海量数据：通常是分布在数千台普通服务器上的PB 级的数据。Google 的很多项目使用Bigtable 存储数据，包括Web 索引、GoogleEarth、Google Finance。<br>     Bigtable 已经实现了下面的几个目标：适用性广泛、可扩展、高性能和高可用性,Bigtable 是一个稀疏的、分布式的、持久化存储的多维度排序Map。</p>
+<h3 id="如何保存一个很大的表？"><a href="#如何保存一个很大的表？" class="headerlink" title="如何保存一个很大的表？"></a>如何保存一个很大的表？</h3><p>将一个大表分成多个小表，每个小表里面是一些排过序的K，V串，用一个MetaData of Table保存每一个小表的存储位置。</p>
+<img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221013113258700.png" alt="image-20221013113258700" style="zoom:50%;" />
+
+
+
+<h3 id="如何保存一个超大的表？"><a href="#如何保存一个超大的表？" class="headerlink" title="如何保存一个超大的表？"></a>如何保存一个超大的表？</h3><p>再递归地拆一层，大表变成Tablet，小表变成SSTable</p>
+<img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221013113523941.png" alt="image-20221013113523941" style="zoom:33%;" />
+
+<p>Metadata of Table=a list of tablets</p>
+<p>Tablet=a list of SSTables</p>
+<p>SSTable=a list of sorted&lt;key,value&gt;</p>
+<h3 id="如何写数据？"><a href="#如何写数据？" class="headerlink" title="如何写数据？"></a>如何写数据？</h3><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221013113809165.png" alt="image-20221013113809165" style="zoom:33%;" />
+
+<p>通过先写入memTable（内存表）来加速，因为内存中是随机存取，更好排序</p>
+<p>Tablet=memTable+a list of SSTables</p>
+<h3 id="如何避免内存数据丢失？"><a href="#如何避免内存数据丢失？" class="headerlink" title="如何避免内存数据丢失？"></a>如何避免内存数据丢失？</h3><p>写入到memTable的同时，在tabletLog上添加一条更改的日志记录，虽然这时候往硬盘上写也会减速，但由于是顺序写入，所以相对较快，而且可能不是在本地写入，而是在远程，所以可能不会影响。</p>
+<img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221013115010963.png" alt="image-20221013115010963" style="zoom:50%;" />
+
+<p>A Tablet=memTable + a list of SSTables + log</p>
+<h3 id="如何加速读数据？"><a href="#如何加速读数据？" class="headerlink" title="如何加速读数据？"></a>如何加速读数据？</h3><p>建立索引，将SSTable拆成多个数据块。</p>
+<img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221013115456847.png" alt="image-20221013115456847" style="zoom:33%;" />
+
+
+
+<h3 id="继续加速？"><a href="#继续加速？" class="headerlink" title="继续加速？"></a>继续加速？</h3><p>使用BloomFilter过滤，判断一个数据在不在一个SSTable中。</p>
+<p>SSTable=a list of 64k blocks + index +bloomfilter</p>
+<p>布隆过滤器可以判断一个数据一定不在一个SSTable中，而不能判断一个数据是否一定在一个SSTable中。</p>
+<h4 id="BloomFilter"><a href="#BloomFilter" class="headerlink" title="BloomFilter"></a>BloomFilter</h4><p>一个01组成的串，对于一个key，采用多种方式Hash，映射到串上的多个位置，映射到的位置变为1。查找时，通过同样的Hash方式映射到位置，如果所有的位置都为1，则说明key可能存在（因为可能别的key映射到的Hash冲突）；如果有一个位置不为1，则说明key肯定不存在。</p>
+<h3 id="BigTable结构"><a href="#BigTable结构" class="headerlink" title="BigTable结构"></a>BigTable结构</h3><p><img src="https://wuminxuan-blog.oss-cn-hangzhou.aliyuncs.com/image-20221013122012438.png" alt="image-20221013122012438"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wuminxuan.github.io/2022/10/12/BigTable/" data-id="clbaeg533000640tx4b7tam4p" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%98%E5%82%A8/" rel="tag">存储</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/10/13/HBase/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          HBase
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/10/08/ssh/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ssh</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80/">技术基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%AE%BA%E6%96%87%E7%A0%94%E8%AF%BB/">技术论文研读</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bert/" rel="tag">Bert</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code-Completion/" rel="tag">Code Completion</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KMP/" rel="tag">KMP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/" rel="tag">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OLAP/" rel="tag">OLAP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OLTP/" rel="tag">OLTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raft/" rel="tag">Raft</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RocketMQ/" rel="tag">RocketMQ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spark/" rel="tag">Spark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/" rel="tag">云计算</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AD%98%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">内存数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%AE%97%E6%B3%95/" rel="tag">字符串算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%98%E5%82%A8/" rel="tag">存储</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%85%A8/" rel="tag">安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" rel="tag">文件系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%81%E8%AE%A1%E7%AE%97/" rel="tag">流计算</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" rel="tag">消息队列</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/" rel="tag">高并发</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Bert/" style="font-size: 10px;">Bert</a> <a href="/tags/Code-Completion/" style="font-size: 10px;">Code Completion</a> <a href="/tags/KMP/" style="font-size: 10px;">KMP</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/OLAP/" style="font-size: 10px;">OLAP</a> <a href="/tags/OLTP/" style="font-size: 10px;">OLTP</a> <a href="/tags/Raft/" style="font-size: 10px;">Raft</a> <a href="/tags/RocketMQ/" style="font-size: 10px;">RocketMQ</a> <a href="/tags/Spark/" style="font-size: 10px;">Spark</a> <a href="/tags/SpringBoot/" style="font-size: 10px;">SpringBoot</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/" style="font-size: 10px;">云计算</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">内存数据库</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 20px;">大数据</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%AE%97%E6%B3%95/" style="font-size: 10px;">字符串算法</a> <a href="/tags/%E5%AD%98%E5%82%A8/" style="font-size: 17.5px;">存储</a> <a href="/tags/%E5%AE%89%E5%85%A8/" style="font-size: 12.5px;">安全</a> <a href="/tags/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">文件系统</a> <a href="/tags/%E6%B5%81%E8%AE%A1%E7%AE%97/" style="font-size: 12.5px;">流计算</a> <a href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" style="font-size: 15px;">消息队列</a> <a href="/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/" style="font-size: 10px;">高并发</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/11/24/KMP/">KMP</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/16/An%20Empirical%20Study%20on%20the%20Usage%20of%20BERT%20Models%20for%20Code%20Completion/">An Empirical Study on the Usage of BERT Models for Code Completion</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/12/Flink/">Flink</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/31/Raft-Exntended/">Raft-Exntended</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/27/RocketMQ/">RocketMQ</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 zh-CN<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
