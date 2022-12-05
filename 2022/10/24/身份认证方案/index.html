@@ -5,14 +5,19 @@
   
 
   
-  <title>Tag: 流计算 | 吴旻轩的个人博客</title>
+  <title>身份认证方案 | 吴旻轩的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="吴旻轩的个人博客">
-<meta property="og:url" content="http://wuminxuan.github.io/tags/%E6%B5%81%E8%AE%A1%E7%AE%97/index.html">
+  <meta name="description" content="对于服务端渲染：推荐使用Session认证；而对于前后端分离的项目：推荐使用JWT Session认证由于HTTP协议是无状态的，所以为了使得不需要每次请求都要用户重新认证，我们一般将一些用户认证信息保存在浏览器的Cookie中。客户端重新发起请求时，会自动将当前域名下所有的未过期Cookie一同发送给服务端。 Cookie是存储在浏览器中，浏览器可以读写Cookie，因此不应将敏感的隐私数据存在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="身份认证方案">
+<meta property="og:url" content="http://wuminxuan.github.io/2022/10/24/%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E6%96%B9%E6%A1%88/index.html">
 <meta property="og:site_name" content="吴旻轩的个人博客">
+<meta property="og:description" content="对于服务端渲染：推荐使用Session认证；而对于前后端分离的项目：推荐使用JWT Session认证由于HTTP协议是无状态的，所以为了使得不需要每次请求都要用户重新认证，我们一般将一些用户认证信息保存在浏览器的Cookie中。客户端重新发起请求时，会自动将当前域名下所有的未过期Cookie一同发送给服务端。 Cookie是存储在浏览器中，浏览器可以读写Cookie，因此不应将敏感的隐私数据存在">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-10-24T05:27:07.000Z">
+<meta property="article:modified_time" content="2022-12-05T05:42:06.876Z">
 <meta property="article:author" content="zh-CN">
+<meta property="article:tag" content="安全">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="吴旻轩的个人博客" type="application/atom+xml">
@@ -62,78 +67,82 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/12/05/Flink/" class="archive-article-date">
-  <time datetime="2022-12-05T05:13:51.000Z" itemprop="datePublished">Dec 5</time>
+        <section id="main"><article id="post-身份认证方案" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/10/24/%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E6%96%B9%E6%A1%88/" class="article-date">
+  <time datetime="2022-10-24T05:27:07.000Z" itemprop="datePublished">2022-10-24</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80/">技术基础</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/12/05/Flink/">Flink</a>
+    <h1 class="article-title" itemprop="name">
+      身份认证方案
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/12/05/Storm/" class="archive-article-date">
-  <time datetime="2022-12-05T05:13:02.000Z" itemprop="datePublished">Dec 5</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/12/05/Storm/">Storm</a>
-    </h1>
-  
+        <p>对于服务端渲染：推荐使用Session认证；而对于前后端分离的项目：推荐使用JWT</p>
+<h3 id="Session认证"><a href="#Session认证" class="headerlink" title="Session认证"></a>Session认证</h3><p>由于HTTP协议是无状态的，所以为了使得不需要每次请求都要用户重新认证，我们一般将一些用户认证信息保存在浏览器的Cookie中。客户端重新发起请求时，会自动将当前域名下所有的未过期Cookie一同发送给服务端。</p>
+<p>Cookie是存储在浏览器中，浏览器可以读写Cookie，因此不应将敏感的隐私数据存在Cookie中。</p>
+<p>Session的工作原理如下：</p>
+<ol>
+<li>浏览器第一次发送请求到服务端，服务端认证通过以后，在缓存(一般采用Redis)中创建一个Session，同时在请求头中设置Cookie(name为JSESSIONID,value为sessionID)，浏览器会根据请求头保存该Cookie</li>
+<li>浏览器再次请求服务端时，会携带该Cookie，服务端根据cookie中的sessionID去缓存中查找对应的Session，完成认证</li>
+</ol>
+<p>Session认证的局限性：需要配合Cookie使用，Cookie默认不支持跨域，前端跨域请求后端接口时，需要做额外的很多配置。所以前端需要跨域请求后端接口时，推荐使用JWT认证机制。</p>
+<h3 id="JWT认证"><a href="#JWT认证" class="headerlink" title="JWT认证"></a>JWT认证</h3><p>Json Web Token，是目前最流行的跨域认证解决方案。</p>
+<p>工作原理如下：</p>
+<ol>
+<li>客户端第一次发送请求给服务端，服务端验证用户的账号与密码通过后，将用户的信息对象，经过加密后生成Token字符串，并将Token保存在localStorage或SessionStorage上。</li>
+<li>客户端再次发送请求时，通过请求头的Authorization字段，将Token发送给服务器。服务器将Token字符串还原成用户信息对象，完成认证。</li>
+</ol>
+<p>JWT的组成部分：Header(头部)，Payload(有效载荷)，Signature(签名)。三者之间使用”.”分割。Header和Signature是安全性相关部分，Payload部分存储的是用户信息经过加密之后生成的字符串。</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/12/05/Spark%20Streaming/" class="archive-article-date">
-  <time datetime="2022-12-05T05:11:31.000Z" itemprop="datePublished">Dec 5</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/12/05/Spark%20Streaming/">Spark Streaming</a>
-    </h1>
-  
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wuminxuan.github.io/2022/10/24/%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E6%96%B9%E6%A1%88/" data-id="clbadazjk002vggtx960c5o8x" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%89%E5%85%A8/" rel="tag">安全</a></li></ul>
 
-    </header>
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/10/27/RockerMQ/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          RockerMQ
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2022/10/19/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">消息队列</div>
+    </a>
   
+</nav>
 
+  
+</article>
 
 </section>
         

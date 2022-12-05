@@ -5,14 +5,20 @@
   
 
   
-  <title>Tag: 流计算 | 吴旻轩的个人博客</title>
+  <title>Redis | 吴旻轩的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="吴旻轩的个人博客">
-<meta property="og:url" content="http://wuminxuan.github.io/tags/%E6%B5%81%E8%AE%A1%E7%AE%97/index.html">
+  <meta name="description" content="redis的数据结构5种基本类型：String、Hash、List、Set、SortedSet HyperLogLog：用于基数统计，计算一个数据集中不重复元素的个数。 Geo：用于存放地理位置（经纬度） Pub&#x2F;Sub：消息通信模式，Pub发布消息，Sub接收消息。 Redis的keys指令可以使用keys指令来在大量的kv对中寻找特定模式的key集合。 但是由于Redis是单线程的，keys指">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis">
+<meta property="og:url" content="http://wuminxuan.github.io/2022/11/05/Redis/index.html">
 <meta property="og:site_name" content="吴旻轩的个人博客">
+<meta property="og:description" content="redis的数据结构5种基本类型：String、Hash、List、Set、SortedSet HyperLogLog：用于基数统计，计算一个数据集中不重复元素的个数。 Geo：用于存放地理位置（经纬度） Pub&#x2F;Sub：消息通信模式，Pub发布消息，Sub接收消息。 Redis的keys指令可以使用keys指令来在大量的kv对中寻找特定模式的key集合。 但是由于Redis是单线程的，keys指">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-11-05T05:18:37.000Z">
+<meta property="article:modified_time" content="2022-12-05T05:43:12.782Z">
 <meta property="article:author" content="zh-CN">
+<meta property="article:tag" content="存储">
+<meta property="article:tag" content="内存数据库">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="吴旻轩的个人博客" type="application/atom+xml">
@@ -62,78 +68,84 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/12/05/Flink/" class="archive-article-date">
-  <time datetime="2022-12-05T05:13:51.000Z" itemprop="datePublished">Dec 5</time>
+        <section id="main"><article id="post-Redis" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/11/05/Redis/" class="article-date">
+  <time datetime="2022-11-05T05:18:37.000Z" itemprop="datePublished">2022-11-05</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80/">技术基础</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/12/05/Flink/">Flink</a>
+    <h1 class="article-title" itemprop="name">
+      Redis
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/12/05/Storm/" class="archive-article-date">
-  <time datetime="2022-12-05T05:13:02.000Z" itemprop="datePublished">Dec 5</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/12/05/Storm/">Storm</a>
-    </h1>
-  
+        <h3 id="redis的数据结构"><a href="#redis的数据结构" class="headerlink" title="redis的数据结构"></a>redis的数据结构</h3><p>5种基本类型：String、Hash、List、Set、SortedSet</p>
+<p>HyperLogLog：用于基数统计，计算一个数据集中不重复元素的个数。</p>
+<p>Geo：用于存放地理位置（经纬度）</p>
+<p>Pub/Sub：消息通信模式，Pub发布消息，Sub接收消息。</p>
+<h3 id="Redis的keys指令"><a href="#Redis的keys指令" class="headerlink" title="Redis的keys指令"></a>Redis的keys指令</h3><p>可以使用keys指令来在大量的kv对中寻找特定模式的key集合。</p>
+<p>但是由于Redis是单线程的，keys指令会阻塞线程，线上服务会停顿，此时应该使用scan指令。</p>
+<h3 id="Redis的数据持久化"><a href="#Redis的数据持久化" class="headerlink" title="Redis的数据持久化"></a>Redis的数据持久化</h3><p>Redis提供了两种持久化方式，RDB(Redis DataBase)和AOF(Append Only File)。</p>
+<p>RDB：在不同的时间点，将Redis存储的数据生成快照并存储到磁盘上。</p>
+<p>AOF：将Redis执行过的所有写指令记录下来，在下次Redis重新启动时，把这些写指令从头执行一次，就可以实现数据恢复了。</p>
+<p>两种方法也可以同时使用，Redis重启时，会先使用RDB持久化文件重新构建内存，再根据AOF来恢复到重启前的状态。</p>
+<h3 id="RDB的原理"><a href="#RDB的原理" class="headerlink" title="RDB的原理"></a>RDB的原理</h3><p>Fork&amp;Copy on write</p>
+<p>Redis会创建(fork)一个子进程来进行RDB操作；子进程创建后，父子进程共享内存数据段，父进程继续提供读写服务，写脏的数据会逐渐和子进程分离开来。</p>
+<h3 id="Redis缓存雪崩、缓存击穿、缓存穿透"><a href="#Redis缓存雪崩、缓存击穿、缓存穿透" class="headerlink" title="Redis缓存雪崩、缓存击穿、缓存穿透"></a>Redis缓存雪崩、缓存击穿、缓存穿透</h3><p><strong>缓存雪崩</strong>：一般发生在将一批Key的过期时间都设置在同一时间节点上。而当它们一起过期的时候，大量的请求在缓存中找不到数据，直接打到了数据库上，数据库没法承载这么大的并发量直接崩掉了。就像雪崩一样，数据库崩掉了，与之相关的所有库的接口都没法使用了。用户此时还会不停地重试请求，即使DBA重启了数据库，这些大量的重试请求一样会再次使得数据库崩溃。</p>
+<p>解决方案：将每个Key的过期时间在原有的基础上增加一个随机的值，使得缓存中的数据不会在同一时刻大量失效。</p>
+<p><strong>缓存击穿</strong>：和缓存雪崩有点像。是缓存中的某个热点数据每时每刻都在接受大量的查询请求，当这个数据失效后，大量的查询请求会绕过缓存直接访问数据库，使得数据库崩溃。</p>
+<p>解决方案：设置热点数据永不过期；或者使用互斥锁(第一个到数据库的查询会持有锁，其他的查询会等待，当第一个查询将数据存到缓存中后，接下来的查询会从缓存中读数据)</p>
+<p><strong>缓存穿透</strong>：数据库和缓存中都没有的数据，而用户不断对这个数据发起请求。例如：一直查询id=-1的用户数据。每次请求都能绕过缓存直接打到数据库上，QPS高了，数据库就会崩溃。</p>
+<p>解决方案：对参数做校验；使用布隆过滤器判断Key是否在数据库中存在</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/12/05/Spark%20Streaming/" class="archive-article-date">
-  <time datetime="2022-12-05T05:11:31.000Z" itemprop="datePublished">Dec 5</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/12/05/Spark%20Streaming/">Spark Streaming</a>
-    </h1>
-  
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wuminxuan.github.io/2022/11/05/Redis/" data-id="clbadazix000cggtxaw2kgop3" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%86%85%E5%AD%98%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">内存数据库</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%98%E5%82%A8/" rel="tag">存储</a></li></ul>
 
-    </header>
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/11/16/An%20Empirical%20Study%20on%20the%20Usage%20of%20BERT%20Models%20for%20Code%20Completion/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          An Empirical Study on the Usage of BERT Models for Code Completion
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2022/10/31/Raft-Exntended/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Raft-Exntended</div>
+    </a>
   
+</nav>
 
+  
+</article>
 
 </section>
         
